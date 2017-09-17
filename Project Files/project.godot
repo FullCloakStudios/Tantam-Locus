@@ -1,0 +1,13 @@
+config_version=3
+
+config_version=null
+
+[application]
+
+config/name="ProjectSpacey"
+run/main_scene="res://World.tscn"
+config/icon="res://icon.png"
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
