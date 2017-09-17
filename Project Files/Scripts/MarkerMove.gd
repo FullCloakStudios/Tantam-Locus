@@ -3,7 +3,7 @@ extends KinematicBody2D
 export(NodePath) var marker
 export(NodePath) var ship
 
-var speed = Vector2(15,15)
+var speed = Vector2(150,150)
 var shipPos = Vector2()
 
 var velocity = Vector2()

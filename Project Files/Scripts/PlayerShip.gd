@@ -14,4 +14,4 @@ func _fixed_process(delta):
 	var shipPos = ship.position
 	var offset = markerPos - shipPos
 	var motion = offset * delta * speed
-	move_and_collide(-motion)
+	move_and_collide(motion)
