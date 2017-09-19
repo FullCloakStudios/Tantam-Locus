@@ -1,14 +1,18 @@
 extends KinematicBody2D
 
 export(NodePath) var ship
+export(String) var gunfire
 
 var speed = Vector2(150,150)
 var shipPos = Vector2()
+
+
 
 var offset = Vector2()
 
 func _ready():
 	ship = get_node(ship)
+	 
 
 func _fixed_process(delta):
 	if(Input.is_mouse_button_pressed(BUTTON_LEFT)):
@@ -22,3 +26,9 @@ func _process(delta):
 	var mpos = get_global_mouse_position()
 	mpos = mpos
 	look_at(mpos)
+	
+	if(Input.is_mouse_button_pressed(BUTTON_RIGHT)):
+		var scene = load(gunfire)
+		var node = scene.instance()
+		node.position = Vector2(0,1)
+		add_child(node)
