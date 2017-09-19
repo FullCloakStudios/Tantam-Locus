@@ -23,9 +23,7 @@ func _fixed_process(delta):
 	move_and_slide(-motion)
 	
 func _process(delta):
-	var mpos = get_global_mouse_position()
-	mpos = mpos
-	look_at(mpos)
+	get_node(".").rotation = ( get_node(".").position.angle_to_point( get_global_mouse_position() ) + deg2rad(-90) )
 	
 	if(Input.is_mouse_button_pressed(BUTTON_RIGHT)):
 		var scene = load(gunfire)

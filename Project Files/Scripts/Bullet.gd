@@ -8,7 +8,6 @@ var counter = 20
 
 func _on_collision(value):
 	var collider = value.get_parent()
-	print(collider.get_script() == "res://Scripts/PureHealth.gd")
 	if(collider.get_script() == "res://Scripts/PureHealth.gd"):
 		collider.get_script().health =- damage
 	get_node(".").free()

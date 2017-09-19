@@ -23,7 +23,6 @@ gunfire = null
 
 scale = Vector2( 5, 5 )
 shape = SubResource( 1 )
-disabled = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Camera2D" type="Camera2D" parent="."]
