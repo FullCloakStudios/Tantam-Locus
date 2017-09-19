@@ -1,17 +1,24 @@
-extends Node
+extends KinematicBody2D
 
-var speed = Vector2(10,10)
-export(NodePath) var marker
 export(NodePath) var ship
 
+var speed = Vector2(150,150)
+var shipPos = Vector2()
+
+var offset = Vector2()
+
 func _ready():
-	set_fixed_process(true)
-	marker = get_node(marker)
 	ship = get_node(ship)
 
 func _fixed_process(delta):
-	var markerPos = marker.position
-	var shipPos = ship.position
-	var offset = markerPos - shipPos
+	if(Input.is_mouse_button_pressed(BUTTON_LEFT)):
+		offset = ship.position - get_global_mouse_position()
+	else:
+		offset = offset / 1.2
 	var motion = offset * delta * speed
-	move_and_collide(motion)
+	move_and_slide(-motion)
+	
+func _process(delta):
+	var mpos = get_global_mouse_position()
+	mpos = mpos
+	look_at(mpos)

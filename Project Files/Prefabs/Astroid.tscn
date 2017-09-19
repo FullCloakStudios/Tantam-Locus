@@ -5,7 +5,7 @@
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 28.7843
+radius = 28.2434
 
 [node name="StaticBody2D" type="StaticBody2D"]
 
@@ -25,6 +25,8 @@ texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
+position = Vector2( 0.524475, 0.229644 )
+scale = Vector2( 1, 1.01854 )
 shape = SubResource( 1 )
 
 
