@@ -55,7 +55,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Gun" type="Node2D" parent="."]
 
-position = Vector2( 0, -30.7068 )
+position = Vector2( 0, -32 )
 scale = Vector2( 0.1, 0.1 )
 script = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
