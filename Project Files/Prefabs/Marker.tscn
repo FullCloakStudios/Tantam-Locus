@@ -4,7 +4,8 @@
 
 [node name="Marker" type="Node2D"]
 
-_sections_unfolded = [ "Transform" ]
+z = 9
+_sections_unfolded = [ "Transform", "Z" ]
 
 [node name="Marker" type="Sprite" parent="."]
 

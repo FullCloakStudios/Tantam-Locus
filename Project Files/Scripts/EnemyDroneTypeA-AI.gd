@@ -13,15 +13,15 @@ func _fixed_process(delta):
 			doSplode = false
 			var explosion = preload("res://Prefabs/ExplosionTypeA.tscn").instance()
 			explosion.translate(Vector2(rand_range(-10,10),rand_range(-10,10)))
-			explosion.scale *= 1.3
+			explosion.scale *= 2
 			add_child(explosion)
 			if(rand_range(0,5) > 1):
 				var explosion2 = preload("res://Prefabs/ExplosionTypeA.tscn").instance()
-				explosion2.translate(Vector2(rand_range(-10,10) - 5,rand_range(-10,10)))
+				explosion2.translate(Vector2(rand_range(-30,30) - 5,rand_range(-20,30)))
 				add_child(explosion2)
 			if(rand_range(0,5) > 1):
 				var explosion3 = preload("res://Prefabs/ExplosionTypeA.tscn").instance()
-				explosion3.translate(Vector2(rand_range(-10,10) + 3,rand_range(-10,10) - 2))
+				explosion3.translate(Vector2(rand_range(-40,40) + 3,rand_range(-50,40) - 2))
 				add_child(explosion3)
 
 func _on_EnemyDroneTypeA_input_event( viewport, event, shape_idx ):
