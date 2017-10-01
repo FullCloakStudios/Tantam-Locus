@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scripts/WorldGeneration.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/World-Mechanics.gd" type="Script" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Prefabs/Astroid.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Prefabs/background.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/EnemyDroneTypeA.tscn" type="PackedScene" id=5]
 
 [node name="World" type="Node2D"]
 
@@ -14,44 +15,60 @@ _sections_unfolded = [ "Transform" ]
 
 ship = NodePath(".")
 
-[node name="AstroidTypeA" parent="." instance=ExtResource( 3 )]
+[node name="Space-Terrain" type="Node2D" parent="."]
+
+editor/display_folded = true
+
+[node name="AstroidTypeA" parent="Space-Terrain" instance=ExtResource( 3 )]
 
 position = Vector2( -341.076, -115.356 )
 
-[node name="AstroidTypeA2" parent="." instance=ExtResource( 3 )]
+[node name="AstroidTypeA2" parent="Space-Terrain" instance=ExtResource( 3 )]
 
 position = Vector2( 243.487, -208.887 )
 
-[node name="AstroidTypeA3" parent="." instance=ExtResource( 3 )]
+[node name="AstroidTypeA3" parent="Space-Terrain" instance=ExtResource( 3 )]
 
 position = Vector2( -311.013, 103.437 )
 
-[node name="AstroidTypeA4" parent="." instance=ExtResource( 3 )]
+[node name="AstroidTypeA4" parent="Space-Terrain" instance=ExtResource( 3 )]
 
 position = Vector2( -205.792, -223.918 )
 
-[node name="AstroidTypeA5" parent="." instance=ExtResource( 3 )]
+[node name="AstroidTypeA5" parent="Space-Terrain" instance=ExtResource( 3 )]
 
 position = Vector2( 435.558, 186.947 )
 
-[node name="AstroidTypeA6" parent="." instance=ExtResource( 3 )]
+[node name="AstroidTypeA6" parent="Space-Terrain" instance=ExtResource( 3 )]
 
 position = Vector2( 448.92, -103.665 )
 
-[node name="AstroidTypeA7" parent="." instance=ExtResource( 3 )]
+[node name="AstroidTypeA7" parent="Space-Terrain" instance=ExtResource( 3 )]
 
 position = Vector2( -267.588, 220.35 )
 
-[node name="AstroidTypeA9" parent="." instance=ExtResource( 3 )]
+[node name="AstroidTypeA9" parent="Space-Terrain" instance=ExtResource( 3 )]
 
 position = Vector2( 62.1868, -316.498 )
 
-[node name="AstroidTypeA8" parent="." instance=ExtResource( 3 )]
+[node name="AstroidTypeA8" parent="Space-Terrain" instance=ExtResource( 3 )]
 
 position = Vector2( 44.7358, 237.052 )
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
 
 layer = -10
+
+[node name="EnemyDroneTypeA" parent="." instance=ExtResource( 5 )]
+
+position = Vector2( -145.632, -109.549 )
+
+[node name="EnemyDroneTypeA2" parent="." instance=ExtResource( 5 )]
+
+position = Vector2( 256.881, -66.1239 )
+
+[node name="EnemyDroneTypeA3" parent="." instance=ExtResource( 5 )]
+
+position = Vector2( 160.011, 125.947 )
 
 
