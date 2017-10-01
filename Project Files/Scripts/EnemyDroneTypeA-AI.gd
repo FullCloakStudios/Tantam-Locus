@@ -29,10 +29,12 @@ func _on_EnemyDroneTypeA_input_event( viewport, event, shape_idx ):
 		var scene = load(marker)
 		var node = scene.instance()
 		$"../".add_child(node)
+		node.target = $"."
 		node.position = position
 	if($"../Marker" != null):
 		$"../Marker".free()
 		var scene = load(marker)
 		var node = scene.instance()
 		$"../".add_child(node)
+		node.target = weakref($".");
 		node.position = position
