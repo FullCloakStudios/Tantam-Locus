@@ -1,7 +1,6 @@
 extends KinematicBody2D
 
 export(NodePath) var ship
-
 var speed = Vector2(150,150)
 var shipPos = Vector2()
 

@@ -1,13 +1,30 @@
 extends KinematicBody2D
 
 export(String) var marker
-var node
 var health = 100
 var doSplode = true
+var move
+var speed = 50
+var player
+
 func _ready():
+	player = get_node("/root/World/playerShip")
+	move = Vector2(rand_range(-1,1),rand_range(-1,1))
 	pass
 
 func _fixed_process(delta):
+	
+	if(player.position.distance_to(position) > 100):
+		move = position - move
+		rotation = ($".".position.angle_to_point( move ) + deg2rad(90) )
+		move *= delta * speed
+		move_and_slide(move)
+	else:
+		move = position - player.position
+		rotation = ($".".position.angle_to_point( move ) + deg2rad(90) )
+		move *= delta * speed
+		move_and_slide(move)
+	
 	if(health <= 0):
 		if(doSplode):
 			doSplode = false

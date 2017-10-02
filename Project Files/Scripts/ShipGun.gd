@@ -4,8 +4,6 @@ export(String) var gunfire
 var firerate = 1
 var stockFirerate = 25
 
-func _ready():
-	pass
 
 func _fixed_process(delta):
 	if(firerate > 1):
