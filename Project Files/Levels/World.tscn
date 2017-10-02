@@ -1,18 +1,29 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/World-Mechanics.gd" type="Script" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Prefabs/background.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Prefabs/EnemyDroneTypeA.tscn" type="PackedScene" id=4]
 
 [node name="World" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="playerShip" parent="." instance=ExtResource( 2 )]
+[node name="UI" type="Control" parent="."]
 
-ship = NodePath(".")
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="playerShip" parent="." instance=ExtResource( 2 )]
 
 [node name="Space-Terrain" type="Node2D" parent="."]
 
@@ -20,16 +31,6 @@ ship = NodePath(".")
 
 layer = -10
 
-[node name="EnemyDroneTypeA" parent="." instance=ExtResource( 4 )]
-
-position = Vector2( -145.632, -109.549 )
-
-[node name="EnemyDroneTypeA2" parent="." instance=ExtResource( 4 )]
-
-position = Vector2( 256.881, -66.1239 )
-
-[node name="EnemyDroneTypeA3" parent="." instance=ExtResource( 4 )]
-
-position = Vector2( 160.011, 125.947 )
+[node name="Ships" type="Node2D" parent="."]
 
 

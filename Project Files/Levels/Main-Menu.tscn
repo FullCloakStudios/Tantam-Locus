@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Fonts/Roboto-Light.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Sprites/Ui Sprites/NewGame.png" type="Texture" id=2]
@@ -7,7 +7,8 @@
 [ext_resource path="res://Sprites/Ui Sprites/LoadGame.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Ui Sprites/Settings.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Ui Sprites/Exit.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Backdrop001.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/Exit.gd" type="Script" id=8]
+[ext_resource path="res://Sprites/Backdrop001.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -176,6 +177,7 @@ shortcut = null
 group = null
 icon = ExtResource( 7 )
 flat = false
+script = ExtResource( 8 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="Backdrop001" type="Sprite" parent="Menu"]
@@ -183,9 +185,11 @@ _sections_unfolded = [ "Rect" ]
 position = Vector2( 511.649, 320.042 )
 scale = Vector2( 1.29, 1.2 )
 z = -10
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 _sections_unfolded = [ "Transform" ]
 
 [connection signal="button_up" from="Menu/NewGame" to="Menu/NewGame" method="_on_NewGame_button_up"]
+
+[connection signal="button_up" from="Menu/ExitGame" to="Menu/ExitGame" method="_on_ExitGame_button_up"]
 
 
