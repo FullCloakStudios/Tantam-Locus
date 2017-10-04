@@ -42,16 +42,16 @@ func _fixed_process(delta):
 				add_child(explosion3)
 
 func _on_EnemyDroneTypeA_input_event( viewport, event, shape_idx ):
-	if($"../Marker" == null):
+	if($"/root/World/Marker" == null):
 		var scene = load(marker)
 		var node = scene.instance()
-		$"../".add_child(node)
+		$"/root/World/".add_child(node)
 		node.target = $"."
 		node.position = position
-	if($"../Marker" != null):
-		$"../Marker".free()
+	if($"/root/World/Marker" != null):
+		$"/root/World/Marker".free()
 		var scene = load(marker)
 		var node = scene.instance()
-		$"../".add_child(node)
+		$"/root/World/".add_child(node)
 		node.target = weakref($".");
 		node.position = position

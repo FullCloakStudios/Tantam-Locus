@@ -25,8 +25,10 @@ scale = Vector2( 5, 5 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera" type="Camera2D" parent="."]
 
+z = 1
+z_as_relative = false
 anchor_mode = 1
 rotating = false
 current = true
@@ -47,6 +49,7 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
+_sections_unfolded = [ "Z" ]
 
 [node name="Sprite" type="Sprite" parent="."]
 

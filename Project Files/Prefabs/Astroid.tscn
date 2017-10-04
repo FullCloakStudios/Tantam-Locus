@@ -10,7 +10,7 @@ radius = 28.2434
 
 [node name="AstroidTypeA" type="StaticBody2D"]
 
-input_pickable = false
+input_pickable = true
 collision_layer = 1
 collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
@@ -18,8 +18,9 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Pickable", "Transform" ]
 health = 10.0
+marker = "res://Prefabs/Marker.tscn"
 
 [node name="Astroid" type="Sprite" parent="."]
 
@@ -29,5 +30,7 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 shape = SubResource( 1 )
+
+[connection signal="input_event" from="." to="." method="_on_AstroidTypeA_input_event"]
 
 

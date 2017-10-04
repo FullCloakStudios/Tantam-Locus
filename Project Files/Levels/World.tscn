@@ -1,36 +1,50 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/World-Mechanics.gd" type="Script" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Prefabs/background.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Prefabs/Astroid.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Prefabs/UI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/Background.tscn" type="PackedScene" id=5]
 
 [node name="World" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="UI" type="Control" parent="."]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-
 [node name="playerShip" parent="." instance=ExtResource( 2 )]
 
 [node name="Space-Terrain" type="Node2D" parent="."]
 
-[node name="ParallaxBackground" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
 
-layer = -10
+[node name="AstroidTypeA" parent="Space-Terrain" instance=ExtResource( 3 )]
+
+position = Vector2( 219.048, -139.623 )
+
+[node name="AstroidTypeA2" parent="Space-Terrain" instance=ExtResource( 3 )]
+
+position = Vector2( -400.2, -175.673 )
+
+[node name="AstroidTypeA3" parent="Space-Terrain" instance=ExtResource( 3 )]
+
+position = Vector2( -422.857, 76.0804 )
+
+[node name="AstroidTypeA4" parent="Space-Terrain" instance=ExtResource( 3 )]
+
+position = Vector2( -276.841, 232.167 )
+
+[node name="AstroidTypeA5" parent="Space-Terrain" instance=ExtResource( 3 )]
+
+position = Vector2( 196.456, 176.782 )
+
+[node name="AstroidTypeA6" parent="Space-Terrain" instance=ExtResource( 3 )]
+
+position = Vector2( 357.578, -12.0332 )
 
 [node name="Ships" type="Node2D" parent="."]
+
+[node name="UI" parent="." instance=ExtResource( 4 )]
+
+[node name="Background" parent="." instance=ExtResource( 5 )]
 
 
