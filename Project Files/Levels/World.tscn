@@ -25,6 +25,6 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( -229.718, -36.141 )
 z = -1
-_sections_unfolded = [ "Z" ]
+_sections_unfolded = [ "Visibility", "Z" ]
 
 
