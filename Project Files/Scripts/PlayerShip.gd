@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export(NodePath) var ship
-var speed = Vector2(150,150)
+var speed
 var shipPos = Vector2()
 
 export(String) var gunfire
@@ -17,14 +17,29 @@ var Shieldd = 100
 var Armourd = 100
 
 var doSplode = true
+var landing = false
 
 var offset = Vector2()
 
-var inventory = {} # do more invering in the morn
-var hullParts = HullPart[2]
+var inventory = {}
+var hullParts = ["res://Prefabs/ShipParts/HelmBasic.tscn", "res://Prefabs/ShipParts/CargoBasic.tscn", "res://Prefabs/ShipParts/EngineBasic.tscn"]
 
 func _ready():
 	ship = get_node(ship)
+	var i = 0
+	var os
+	for p in hullParts:
+		var scene = load(p)
+		var node = scene.instance()
+		add_child(node)
+		if(i == 0):
+			os = -64
+		elif(i == 1):
+			os = 0
+		elif(i == 2):
+			os = 64
+		i += 1
+		node.position = position + Vector2(0,os)
 
 
 func _fixed_process(delta):
@@ -54,7 +69,7 @@ func fire():
 
 
 func move(delta):
-	if(Input.is_mouse_button_pressed(BUTTON_LEFT)):
+	if(Input.is_mouse_button_pressed(BUTTON_LEFT) && !landing):
 		offset = ship.position - get_global_mouse_position()
 	else:
 		offset = offset / 1.09
@@ -91,7 +106,3 @@ func damage():
 				var explosion3 = preload("res://Prefabs/ExplosionTypeA.tscn").instance()
 				explosion3.translate(Vector2(rand_range(-40,40) + 3,rand_range(-50,40) - 2))
 				add_child(explosion3)
-
-
-class HullPart:
-	var name

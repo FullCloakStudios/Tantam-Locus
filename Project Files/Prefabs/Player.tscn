@@ -1,15 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/PlayerShip.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/BasicShip.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 5.66913, 5.42113 )
+extents = Vector2( 6.35896, 19.3896 )
 
 [node name="playerShip" type="KinematicBody2D"]
 
+scale = Vector2( 0.89, 0.89 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -51,14 +51,9 @@ editor_draw_limits = false
 editor_draw_drag_margin = false
 _sections_unfolded = [ "Z" ]
 
-[node name="Sprite" type="Sprite" parent="."]
-
-texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
-
 [node name="Gun" type="Node2D" parent="."]
 
-position = Vector2( 0, -32 )
+position = Vector2( 0, -105 )
 scale = Vector2( 0.1, 0.1 )
 _sections_unfolded = [ "Transform" ]
 
