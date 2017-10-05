@@ -8,9 +8,14 @@ export(String) var gunfire
 var firerate = 1
 var stockFirerate = 25
 
-var Hull = 1000
+var Hull = 100
 var Shield = 100
 var Armour = 100
+
+var Hulld = 100
+var Shieldd = 100
+var Armourd = 100
+
 var doSplode = true
 
 var offset = Vector2()
@@ -59,7 +64,7 @@ func shouldFire():
 	if($"../Marker" != null):
 		var direction = Vector2(cos(rotation), sin(rotation))
 		var vecMar = $"../Marker".position - position
-		if(vecMar.dot(direction) > -6 && vecMar.dot(direction) < 6):
+		if(vecMar.dot(direction) > -20 && vecMar.dot(direction) < 20):
 			return true
 		else:
 			return false

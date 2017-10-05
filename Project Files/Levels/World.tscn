@@ -2,9 +2,9 @@
 
 [ext_resource path="res://Scripts/World-Mechanics.gd" type="Script" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Prefabs/Astroid.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Prefabs/UI.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Prefabs/Background.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prefabs/UI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Prefabs/Background.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/Planet.tscn" type="PackedScene" id=5]
 
 [node name="World" type="Node2D"]
 
@@ -13,38 +13,18 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="playerShip" parent="." instance=ExtResource( 2 )]
 
-[node name="Space-Terrain" type="Node2D" parent="."]
-
-editor/display_folded = true
-
-[node name="AstroidTypeA" parent="Space-Terrain" instance=ExtResource( 3 )]
-
-position = Vector2( 219.048, -139.623 )
-
-[node name="AstroidTypeA2" parent="Space-Terrain" instance=ExtResource( 3 )]
-
-position = Vector2( -400.2, -175.673 )
-
-[node name="AstroidTypeA3" parent="Space-Terrain" instance=ExtResource( 3 )]
-
-position = Vector2( -422.857, 76.0804 )
-
-[node name="AstroidTypeA4" parent="Space-Terrain" instance=ExtResource( 3 )]
-
-position = Vector2( -276.841, 232.167 )
-
-[node name="AstroidTypeA5" parent="Space-Terrain" instance=ExtResource( 3 )]
-
-position = Vector2( 196.456, 176.782 )
-
-[node name="AstroidTypeA6" parent="Space-Terrain" instance=ExtResource( 3 )]
-
-position = Vector2( 357.578, -12.0332 )
-
 [node name="Ships" type="Node2D" parent="."]
 
-[node name="UI" parent="." instance=ExtResource( 4 )]
+[node name="Space-Terrain" type="Node2D" parent="."]
 
-[node name="Background" parent="." instance=ExtResource( 5 )]
+[node name="UI" parent="." instance=ExtResource( 3 )]
+
+[node name="Background" parent="." instance=ExtResource( 4 )]
+
+[node name="Sprite" parent="." instance=ExtResource( 5 )]
+
+position = Vector2( -229.718, -36.141 )
+z = -1
+_sections_unfolded = [ "Z" ]
 
 

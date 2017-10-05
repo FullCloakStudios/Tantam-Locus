@@ -1,8 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Bullet.gd" type="Script" id=1]
-[ext_resource path="res://shittyBullet.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/shittyBullet.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/TimedDelete.gd" type="Script" id=3]
+
 
 
 [sub_resource type="CapsuleShape2D" id=1]
