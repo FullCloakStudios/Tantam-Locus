@@ -2,10 +2,11 @@
 
 [ext_resource path="res://Scripts/PlayerShip.gd" type="Script" id=1]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 6.35896, 19.3896 )
+radius = 6.40819
+height = 25.9369
 
 [node name="playerShip" type="KinematicBody2D"]
 
@@ -15,15 +16,14 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
 ship = NodePath(".")
 gunfire = "res://Prefabs/Bullet.tscn"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 
+position = Vector2( 0, -2 )
 scale = Vector2( 5, 5 )
 shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="Camera" type="Camera2D" parent="."]
 

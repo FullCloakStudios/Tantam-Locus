@@ -18,6 +18,8 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Space-Terrain" type="Node2D" parent="."]
 
+editor/display_folded = true
+
 [node name="AstroidTypeA" parent="Space-Terrain" instance=ExtResource( 3 )]
 
 position = Vector2( -319.358, 190.479 )

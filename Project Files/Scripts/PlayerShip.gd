@@ -21,7 +21,8 @@ var landing = false
 
 var offset = Vector2()
 
-var inventory = {}
+var cargo = PoolStringArray()
+var cargoSpace
 var hullParts = ["res://Prefabs/ShipParts/HelmBasic.tscn", "res://Prefabs/ShipParts/CargoBasic.tscn", "res://Prefabs/ShipParts/EngineBasic.tscn"]
 
 func _ready():
@@ -51,7 +52,7 @@ func _fixed_process(delta):
 
 func _process(delta):
 	rotation = ( get_node(".").position.angle_to_point( get_global_mouse_position() ) + deg2rad(-90) )
-
+	print(cargo)
 
 
 
@@ -106,3 +107,11 @@ func damage():
 				var explosion3 = preload("res://Prefabs/ExplosionTypeA.tscn").instance()
 				explosion3.translate(Vector2(rand_range(-40,40) + 3,rand_range(-50,40) - 2))
 				add_child(explosion3)
+
+
+func addCargo(item):
+	if(!cargo.size() > cargoSpace):
+		cargo.append(item)
+		return true
+	else:
+		return false
