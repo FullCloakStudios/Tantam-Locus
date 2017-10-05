@@ -13,6 +13,7 @@ func _ready():
 	randomize()
 	texture = base[round(rand_range(0,0))] #add to this for more random
 	$"PlanetCon".texture = cont[round(rand_range(0,0))]
+	$"PlanetCon".rotation = rand_range(0,1)
 	modulate = Color(rand_range(0,1),rand_range(0,1),rand_range(0,1))
 	$"PlanetCon".modulate = Color(rand_range(0,1),rand_range(0,1),rand_range(0,1))
 

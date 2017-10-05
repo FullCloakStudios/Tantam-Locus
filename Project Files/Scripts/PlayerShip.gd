@@ -20,6 +20,8 @@ var doSplode = true
 
 var offset = Vector2()
 
+var inventory = {} # do more invering in the morn
+var hullParts = HullPart[2]
 
 func _ready():
 	ship = get_node(ship)
@@ -89,3 +91,7 @@ func damage():
 				var explosion3 = preload("res://Prefabs/ExplosionTypeA.tscn").instance()
 				explosion3.translate(Vector2(rand_range(-40,40) + 3,rand_range(-50,40) - 2))
 				add_child(explosion3)
+
+
+class HullPart:
+	var name
