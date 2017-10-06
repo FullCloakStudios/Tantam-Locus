@@ -1,12 +1,13 @@
 extends Node
 
 var load_scene = "res://Levels/Load.tscn"
+var savefile
 
 func saveGame():
 	var savegame = File.new()
 	#var err = savegame.open_encrypted_with_pass("user://savedata.bin", File.WRITE, "mypass")
 	#Uncomment this ^ when we do the final release
-	savegame.open("user://savegame.save", File.WRITE)
+	savegame.open("user://" + savefile, File.WRITE)
 	var savenodes = get_tree().get_nodes_in_group("Save")
 	for i in savenodes:
 		var nodedata = i.save()
@@ -17,7 +18,7 @@ func loadGame():
 	var savegame = File.new()
 	#var err = savegame.open_encrypted_with_pass("user://savedata.bin", File.WRITE, "mypass")
 	#Uncomment this ^ when we do the final release
-	if !savegame.file_exists("user://savegame.save"):
+	if !savegame.file_exists("user://" + savefile):
 		return
 	
 	var root = get_tree().get_root()
@@ -29,7 +30,7 @@ func loadGame():
 	get_tree().get_root().add_child(currentScene)
 	
 	var currentline = {}
-	savegame.open("user://savegame.save", File.READ)
+	savegame.open("user://" + savefile, File.READ)
 	currentline = parse_json(savegame.get_line())
 	while (!savegame.eof_reached()):
 		var newobject = load(currentline["filename"]).instance()
