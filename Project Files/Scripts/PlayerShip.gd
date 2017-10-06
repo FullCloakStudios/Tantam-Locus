@@ -52,7 +52,7 @@ func _fixed_process(delta):
 
 func _process(delta):
 	rotation = ( get_node(".").position.angle_to_point( get_global_mouse_position() ) + deg2rad(-90) )
-	print(cargo)
+
 
 
 
@@ -115,3 +115,15 @@ func addCargo(item):
 		return true
 	else:
 		return false
+
+
+func save():
+	var saveData = {
+		filename = get_filename(),
+		parent = get_parent().get_path(),
+		posx = position.x,
+		posy = position.y,
+		scale = scale.x,
+		rotate = rotation,
+	}
+	return saveData

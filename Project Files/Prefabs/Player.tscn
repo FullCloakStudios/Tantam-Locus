@@ -8,7 +8,9 @@ custom_solver_bias = 0.0
 radius = 6.40819
 height = 25.9369
 
-[node name="playerShip" type="KinematicBody2D"]
+[node name="playerShip" type="KinematicBody2D" groups=[
+"Save",
+]]
 
 scale = Vector2( 0.89, 0.89 )
 input_pickable = false

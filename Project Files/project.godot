@@ -13,6 +13,7 @@ config_version=3
 config/name="Tantam-Locus"
 run/main_scene="res://Levels/Main-Menu.tscn"
 boot_splash/image="res://Sprites/Ui Sprites/Splash-Screen.png"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
 [gdnative]

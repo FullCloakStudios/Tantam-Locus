@@ -1,14 +1,15 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Fonts/Roboto-Light.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Sprites/Ui Sprites/NewGame.png" type="Texture" id=2]
-[ext_resource path="res://Scripts/NewGame.gd" type="Script" id=3]
-[ext_resource path="res://Sprites/Ui Sprites/Coutinue.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Ui Sprites/LoadGame.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Ui Sprites/Settings.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Ui Sprites/Exit.png" type="Texture" id=7]
-[ext_resource path="res://Scripts/Exit.gd" type="Script" id=8]
+[ext_resource path="res://Sprites/Ui Sprites/Coutinue.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Ui Sprites/LoadGame.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Ui Sprites/Settings.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Ui Sprites/Exit.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/Exit.gd" type="Script" id=7]
+[ext_resource path="res://icon.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Backdrop001.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/Save.gd" type="Script" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -17,6 +18,81 @@ use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 1 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
+
+[sub_resource type="GDScript" id=8]
+
+script/source = "extends Button
+
+
+func _on_NewGame_button_up():
+	$\"/root/Main-Menu/Menu/NGMenu\".popup(Rect2(215,110,600,400))
+"
+
+[sub_resource type="GDScript" id=2]
+
+script/source = "extends Button
+
+func _ready():
+	pass
+
+
+func _on_Continue_button_up():
+	$\"/root/Main-Menu/SaveManager\".loadGame()
+"
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 45
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 1 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 50
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 1 )
+_sections_unfolded = [ "Settings" ]
+
+[sub_resource type="DynamicFont" id=5]
+
+size = 50
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 1 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="GDScript" id=6]
+
+script/source = "extends Button
+
+export(String) var load_scene
+var currentScene
+
+func _ready():
+	var root = get_tree().get_root()
+	currentScene = root.get_child(root.get_child_count() -1)
+
+func _on_Button_button_up():
+	currentScene.queue_free()
+	var s = ResourceLoader.load(load_scene)
+	currentScene = s.instance()
+	get_tree().get_root().add_child(currentScene)
+"
+
+[sub_resource type="GDScript" id=7]
+
+script/source = "extends Button
+
+func _ready():
+	pass
+
+
+func _on_Cancel_button_up():
+	$\"../\".hide()
+"
 
 [node name="Main-Menu" type="Node2D"]
 
@@ -80,9 +156,8 @@ group = null
 icon = ExtResource( 2 )
 flat = false
 align = 2
-script = ExtResource( 3 )
+script = SubResource( 8 )
 _sections_unfolded = [ "Rect" ]
-load_scene = "res://Levels/World.tscn"
 
 [node name="Continue" type="Button" parent="Menu"]
 
@@ -103,9 +178,10 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-icon = ExtResource( 4 )
+icon = ExtResource( 3 )
 flat = false
 align = 2
+script = SubResource( 2 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="LoadGame" type="Button" parent="Menu"]
@@ -127,7 +203,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-icon = ExtResource( 5 )
+icon = ExtResource( 4 )
 flat = false
 _sections_unfolded = [ "Rect" ]
 
@@ -152,7 +228,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-icon = ExtResource( 6 )
+icon = ExtResource( 5 )
 flat = false
 _sections_unfolded = [ "Rect" ]
 
@@ -175,10 +251,134 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-icon = ExtResource( 7 )
+icon = ExtResource( 6 )
 flat = false
-script = ExtResource( 8 )
+script = ExtResource( 7 )
 _sections_unfolded = [ "Rect" ]
+
+[node name="NGMenu" type="PopupPanel" parent="Menu"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 215.0
+margin_top = 110.0
+margin_right = 815.0
+margin_bottom = 510.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+_sections_unfolded = [ "Rect" ]
+
+[node name="LineEdit" type="LineEdit" parent="Menu/NGMenu"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 45.0
+margin_top = 60.0
+margin_right = 545.0
+margin_bottom = 130.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 3 )
+custom_colors/selection_color = Color( 1, 1, 1, 1 )
+custom_colors/cursor_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_selected = Color( 0.0546875, 0, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+focus_mode = 2
+placeholder_text = "Ship Name"
+placeholder_alpha = 0.6
+caret_blink = false
+caret_blink_speed = 0.65
+
+[node name="MenuButton" type="MenuButton" parent="Menu/NGMenu"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 146.0
+margin_right = 60.0
+margin_bottom = 166.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 4 )
+disabled = true
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 0
+shortcut = null
+group = null
+text = "Something for later"
+icon = ExtResource( 8 )
+flat = true
+items = [  ]
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Button" type="Button" parent="Menu/NGMenu"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 80.0
+margin_top = 300.0
+margin_right = 230.0
+margin_bottom = 370.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 5 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "OK"
+flat = false
+script = SubResource( 6 )
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+load_scene = "res://Levels/World.tscn"
+
+[node name="Cancel" type="Button" parent="Menu/NGMenu"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 360.0
+margin_top = 300.0
+margin_right = 510.0
+margin_bottom = 370.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 5 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Cancel"
+flat = false
+script = SubResource( 7 )
+_sections_unfolded = [ "custom_fonts" ]
 
 [node name="Backdrop001" type="Sprite" parent="Menu"]
 
@@ -188,8 +388,18 @@ z = -10
 texture = ExtResource( 9 )
 _sections_unfolded = [ "Transform" ]
 
+[node name="SaveManager" type="Node" parent="."]
+
+script = ExtResource( 10 )
+
 [connection signal="button_up" from="Menu/NewGame" to="Menu/NewGame" method="_on_NewGame_button_up"]
 
+[connection signal="button_up" from="Menu/Continue" to="Menu/Continue" method="_on_Continue_button_up"]
+
 [connection signal="button_up" from="Menu/ExitGame" to="Menu/ExitGame" method="_on_ExitGame_button_up"]
+
+[connection signal="button_up" from="Menu/NGMenu/Button" to="Menu/NGMenu/Button" method="_on_Button_button_up"]
+
+[connection signal="button_up" from="Menu/NGMenu/Cancel" to="Menu/NGMenu/Cancel" method="_on_Cancel_button_up"]
 
 
