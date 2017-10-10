@@ -24,6 +24,7 @@ var offset = Vector2()
 
 var cargo = PoolStringArray()
 var cargoSpace
+var doPickup = true
 var hullParts = ["res://Prefabs/ShipParts/HelmBasic.tscn", "res://Prefabs/ShipParts/CargoBasic.tscn", "res://Prefabs/ShipParts/EngineBasic.tscn"]
 
 func _ready():
@@ -113,7 +114,7 @@ func damage():
 
 
 func addCargo(item):
-	if(!cargo.size() > cargoSpace):
+	if(!cargo.size() > cargoSpace && doPickup):
 		cargo.append(item)
 		return true
 	else:
