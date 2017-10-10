@@ -17,7 +17,7 @@ func _on_Menu_popup_hide():
 
 func _process(delta):
 	if(drag != null):
-		drag.position = get_local_mouse_position()
+		drag.set_global_position(get_global_mouse_position())
 
 
 func _on_Cargo_item_selected( index ):
@@ -25,4 +25,4 @@ func _on_Cargo_item_selected( index ):
 		drag.queue_free()
 	drag = load("res://Prefabs/Items/TestItem.tscn").instance()
 	drag.texture = get_item_icon(index)
-	add_child(drag)
+	$"../".add_child(drag)
