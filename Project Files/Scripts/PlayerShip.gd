@@ -3,6 +3,7 @@ extends KinematicBody2D
 export(NodePath) var ship
 var speed
 var shipPos = Vector2()
+var shouldMove = true
 
 export(String) var gunfire
 var firerate = 1
@@ -70,10 +71,12 @@ func fire():
 
 
 func move(delta):
-	if(Input.is_mouse_button_pressed(BUTTON_LEFT) && !landing):
+	if(Input.is_mouse_button_pressed(BUTTON_LEFT) && !landing && shouldMove):
 		offset = ship.position - get_global_mouse_position()
 	else:
 		offset = offset / 1.09
+		if(shouldMove == false):
+			offset = Vector2(0,0)
 	var motion = offset * delta * speed
 	move_and_slide(-motion)
 
@@ -125,5 +128,6 @@ func save():
 		posy = position.y,
 		scale = scale.x,
 		rotate = rotation,
+		Hull = Hull
 	}
 	return saveData

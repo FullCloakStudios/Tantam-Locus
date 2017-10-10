@@ -6,7 +6,7 @@ var savefile
 func saveGame():
 	var savegame = File.new()
 	#var err = savegame.open_encrypted_with_pass("user://savedata.bin", File.WRITE, "mypass")
-	#Uncomment this ^ when we do the final release
+	#Uncomment this ^ when we do the final release to encrypet save files
 	savegame.open("user://" + savefile, File.WRITE)
 	var savenodes = get_tree().get_nodes_in_group("Save")
 	for i in savenodes:
