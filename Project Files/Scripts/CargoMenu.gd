@@ -1,9 +1,7 @@
 extends ItemList
 
 var ship
-
-func _ready():
-	select_mode = SELECT_MULTI
+var drag
 
 func _on_Menu_about_to_show():
 	ship =  $"/root/World/playerShip"
@@ -12,5 +10,17 @@ func _on_Menu_about_to_show():
 		var x = load(i).instance()
 		add_item(x.get_name(),x.texture, true)
 
+
 func _on_Menu_popup_hide():
 	ship.shouldMove = true
+
+
+func _process(delta):
+	if(drag != null):
+		drag.position = get_local_mouse_position()
+
+
+func _on_Cargo_item_selected( index ):
+	drag = load("res://Prefabs/Items/TestItem.tscn").instance()
+	drag.texture = get_item_icon(index)
+	add_child(drag)

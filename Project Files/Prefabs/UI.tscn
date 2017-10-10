@@ -214,4 +214,6 @@ shape = SubResource( 1 )
 
 [connection signal="popup_hide" from="Menu" to="Menu/Cargo" method="_on_Menu_popup_hide"]
 
+[connection signal="item_selected" from="Menu/Cargo" to="Menu/Cargo" method="_on_Cargo_item_selected"]
+
 
