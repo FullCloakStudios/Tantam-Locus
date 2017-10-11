@@ -58,23 +58,25 @@ script = ExtResource( 6 )
 
 _sections_unfolded = [ "Transform" ]
 
-[node name="TestItem" parent="." instance=ExtResource( 8 )]
+[node name="Items" type="Node2D" parent="."]
+
+[node name="TestItem" parent="Items" instance=ExtResource( 8 )]
 
 position = Vector2( -171.454, -338.669 )
 
-[node name="TestItem2" parent="." instance=ExtResource( 8 )]
+[node name="TestItem2" parent="Items" instance=ExtResource( 8 )]
 
 position = Vector2( -30.8071, -264.644 )
 
-[node name="TestItem3" parent="." instance=ExtResource( 8 )]
+[node name="TestItem3" parent="Items" instance=ExtResource( 8 )]
 
 position = Vector2( -138.143, -249.839 )
 
-[node name="TestItem4" parent="." instance=ExtResource( 8 )]
+[node name="TestItem4" parent="Items" instance=ExtResource( 8 )]
 
 position = Vector2( -217.72, -270.196 )
 
-[node name="TestItem5" parent="." instance=ExtResource( 8 )]
+[node name="TestItem5" parent="Items" instance=ExtResource( 8 )]
 
 position = Vector2( -254.732, -257.242 )
 

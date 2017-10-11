@@ -23,7 +23,11 @@ script/source = "extends ItemList
 
 
 func _on_Menu_popup_hide():
-	pass
+	var index = 0
+	for i in items:
+		var obj = load(get_item_metadata(index)).instance()
+		obj.position = $\"/root/World/playerShip\".position + Vector2(50,0)
+		$\"/root/World/Items\".add_child(obj)
 
 
 func _on_Drop_item_selected( index ):
