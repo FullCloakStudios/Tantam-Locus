@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Sprites/Ui Sprites/BackgroundBar.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Ui Sprites/HullBar.png" type="Texture" id=2]
@@ -11,12 +11,36 @@
 [ext_resource path="res://Scripts/CargoMenu.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/InventoryPanel.gd" type="Script" id=10]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 146.383, 158.686 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="GDScript" id=2]
+
+script/source = "extends ItemList
+
+
+
+func _on_Menu_popup_hide():
+	pass
+
+
+func _on_Drop_item_selected( index ):
+	var ship =  $\"/root/World/playerShip\"
+	var Cargo = $\"../Cargo\"
+	if(Cargo.drag != null):
+		Cargo.drag.queue_free()
+	
+	$\"DropArea\".ignoreOnce = true
+	ship.removeCargo(index)
+	Cargo.drag = load(\"res://Prefabs/Items/TestItem.tscn\").instance()
+	Cargo.drag.texture = get_item_icon(index)
+	$\"../\".add_child(Cargo.drag)
+	
+	remove_item(index)"
+
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 301.629, 29.214 )
@@ -145,6 +169,7 @@ _sections_unfolded = [ "Margin", "Textures" ]
 
 [node name="Menu" type="PopupPanel" parent="."]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -196,7 +221,7 @@ script = ExtResource( 10 )
 
 position = Vector2( 152.624, 228.389 )
 scale = Vector2( 1, 1.44095 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Drop" type="ItemList" parent="Menu"]
 
@@ -215,6 +240,7 @@ size_flags_vertical = 1
 items = [  ]
 select_mode = 0
 icon_mode = 1
+script = SubResource( 2 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="DropArea" type="Area2D" parent="Menu/Drop"]
@@ -232,14 +258,18 @@ script = ExtResource( 10 )
 
 position = Vector2( 151.784, 33.1615 )
 scale = Vector2( 0.506689, 1 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [connection signal="button_up" from="TextureButton" to="TextureButton" method="_on_TextureButton_button_up"]
 
 [connection signal="about_to_show" from="Menu" to="Menu/Cargo" method="_on_Menu_about_to_show"]
 
+[connection signal="popup_hide" from="Menu" to="Menu/Drop" method="_on_Menu_popup_hide"]
+
 [connection signal="popup_hide" from="Menu" to="Menu/Cargo" method="_on_Menu_popup_hide"]
 
 [connection signal="item_selected" from="Menu/Cargo" to="Menu/Cargo" method="_on_Cargo_item_selected"]
+
+[connection signal="item_selected" from="Menu/Drop" to="Menu/Drop" method="_on_Drop_item_selected"]
 
 
