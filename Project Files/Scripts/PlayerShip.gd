@@ -120,6 +120,8 @@ func addCargo(item):
 	else:
 		return false
 
+func removeCargo(index):
+	cargo.remove(index)
 
 func save():
 	var saveData = {
