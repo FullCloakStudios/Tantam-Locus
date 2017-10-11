@@ -1,0 +1,511 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Fonts/Roboto-Light.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Sprites/Ui Sprites/NewGame.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Ui Sprites/Coutinue.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Ui Sprites/LoadGame.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Ui Sprites/Settings.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Ui Sprites/Exit.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/Exit.gd" type="Script" id=7]
+[ext_resource path="res://icon.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Backdrop001.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/Save.gd" type="Script" id=10]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Control
+
+var saves = PoolStringArray()
+
+var file
+
+func _ready():
+	file = File.new()
+	if !file.file_exists(\"user://gameData.dat\"):
+		file.open(\"user://gameData.dat\",  2)
+		file.store_line(to_json(saves))
+		file.close()
+	else:
+		file.open(\"user://gameData.dat\", 1)
+		saves = parse_json(file.get_line())
+
+
+func addSave(name):
+	file.open(\"user://gameData.dat\",  2)
+	saves.append(name)
+	file.store_line(to_json(saves))
+	file.close()
+
+func deleteSave(name):
+	file.open(\"user://gameData.dat\",  2)
+	saves.remove(name)
+	file.store_line(to_json(saves))
+	file.close()"
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 100
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 1 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
+
+[sub_resource type="GDScript" id=3]
+
+script/source = "extends Button
+
+
+func _on_NewGame_button_up():
+	$\"/root/Main-Menu/Menu/NGMenu\".popup(Rect2(215,110,600,400))
+"
+
+[sub_resource type="GDScript" id=4]
+
+script/source = "extends Button
+
+func _ready():
+	pass
+
+
+func _on_Continue_button_up():
+	$\"/root/Main-Menu/SaveManager\".loadGame()
+"
+
+[sub_resource type="GDScript" id=5]
+
+script/source = "extends Button
+
+func _on_LoadGame_button_up():
+	$\"/root/Main-Menu/Menu/LGMenu\".popup(Rect2(160,30,700,500))
+"
+
+[sub_resource type="DynamicFont" id=6]
+
+size = 45
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 1 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="GDScript" id=7]
+
+script/source = "extends LineEdit
+
+func _on_Name_text_changed( name ):
+	$\"/root/Main-Menu/Menu/NGMenu/Button\".text1 = name
+"
+
+[sub_resource type="DynamicFont" id=8]
+
+size = 50
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 1 )
+_sections_unfolded = [ "Settings" ]
+
+[sub_resource type="DynamicFont" id=9]
+
+size = 50
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 1 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="GDScript" id=10]
+
+script/source = "extends Button
+
+export(String) var load_scene
+var currentScene
+var text1
+
+func _ready():
+	var root = get_tree().get_root()
+	currentScene = root.get_child(root.get_child_count() -1)
+
+func _on_Button_button_up():
+	currentScene.queue_free()
+	var s = ResourceLoader.load(load_scene)
+	currentScene = s.instance()
+	get_tree().get_root().add_child(currentScene)
+	$\"../../\".addSave(text1 + \".save\")
+	currentScene.get_node(\"/root/World/SaveManager\").savefile = text1 + \".save\""
+
+[sub_resource type="GDScript" id=11]
+
+script/source = "extends Button
+
+func _ready():
+	pass
+
+
+func _on_Cancel_button_up():
+	$\"../\".hide()
+"
+
+[sub_resource type="GDScript" id=12]
+
+script/source = "extends PopupMenu
+
+var index = PoolStringArray()
+
+
+func _on_LGMenu_about_to_show():
+	var saves = $\"/root/Main-Menu/Menu\".saves
+	var i = 1
+	for s in saves:
+		add_item(s,i,10)
+		index.append(s)
+		++i
+
+
+
+func _on_LGMenu_id_pressed( ID ):
+	var level = index[ID]
+	$\"/root/Main-Menu/SaveManager\".savefile = level
+	$\"/root/Main-Menu/SaveManager\".loadGame()
+"
+
+[node name="Main-Menu" type="Node2D"]
+
+[node name="Menu" type="Control" parent="."]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = SubResource( 1 )
+
+[node name="Label" type="Label" parent="Menu"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 200.0
+margin_top = 90.0
+margin_right = 840.0
+margin_bottom = 210.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Tantam-Locus"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="NewGame" type="Button" parent="Menu"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 380.0
+margin_top = 382.0
+margin_right = 648.0
+margin_bottom = 457.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+icon = ExtResource( 2 )
+flat = false
+align = 2
+script = SubResource( 3 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="Continue" type="Button" parent="Menu"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 380.0
+margin_top = 270.0
+margin_right = 648.0
+margin_bottom = 345.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+icon = ExtResource( 3 )
+flat = false
+align = 2
+script = SubResource( 4 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="LoadGame" type="Button" parent="Menu"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 380.0
+margin_top = 496.0
+margin_right = 648.0
+margin_bottom = 571.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+icon = ExtResource( 4 )
+flat = false
+script = SubResource( 5 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="Settings" type="Button" parent="Menu"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 946.0
+margin_top = 522.0
+margin_right = 1022.0
+margin_bottom = 598.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+icon = ExtResource( 5 )
+flat = false
+_sections_unfolded = [ "Rect" ]
+
+[node name="ExitGame" type="Button" parent="Menu"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1.0
+margin_top = 519.0
+margin_right = 81.0
+margin_bottom = 599.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+icon = ExtResource( 6 )
+flat = false
+script = ExtResource( 7 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="NGMenu" type="PopupPanel" parent="Menu"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 215.0
+margin_top = 110.0
+margin_right = 815.0
+margin_bottom = 510.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+_sections_unfolded = [ "Rect" ]
+
+[node name="Name" type="LineEdit" parent="Menu/NGMenu"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 45.0
+margin_top = 60.0
+margin_right = 545.0
+margin_bottom = 130.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 6 )
+custom_colors/selection_color = Color( 1, 1, 1, 1 )
+custom_colors/cursor_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_selected = Color( 0.0546875, 0, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+expand_to_len = false
+focus_mode = 2
+placeholder_text = "Ship Name"
+placeholder_alpha = 0.6
+caret_blink = false
+caret_blink_speed = 0.65
+script = SubResource( 7 )
+
+[node name="MenuButton" type="MenuButton" parent="Menu/NGMenu"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 146.0
+margin_right = 60.0
+margin_bottom = 166.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 8 )
+disabled = true
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 0
+shortcut = null
+group = null
+text = "Something for later"
+icon = ExtResource( 8 )
+flat = true
+items = [  ]
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Button" type="Button" parent="Menu/NGMenu"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 80.0
+margin_top = 300.0
+margin_right = 230.0
+margin_bottom = 370.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 9 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "OK"
+flat = false
+script = SubResource( 10 )
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+load_scene = "res://Levels/World.tscn"
+
+[node name="Cancel" type="Button" parent="Menu/NGMenu"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 360.0
+margin_top = 300.0
+margin_right = 510.0
+margin_bottom = 370.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 9 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Cancel"
+flat = false
+script = SubResource( 11 )
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Backdrop001" type="Sprite" parent="Menu"]
+
+position = Vector2( 511.649, 320.042 )
+scale = Vector2( 1.29, 1.2 )
+z = -10
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LGMenu" type="PopupMenu" parent="Menu"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 160.0
+margin_top = 30.0
+margin_right = 860.0
+margin_bottom = 530.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+items = [  ]
+script = SubResource( 12 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="SaveManager" type="Node" parent="."]
+
+script = ExtResource( 10 )
+
+[connection signal="button_up" from="Menu/NewGame" to="Menu/NewGame" method="_on_NewGame_button_up"]
+
+[connection signal="button_up" from="Menu/Continue" to="Menu/Continue" method="_on_Continue_button_up"]
+
+[connection signal="button_up" from="Menu/LoadGame" to="Menu/LoadGame" method="_on_LoadGame_button_up"]
+
+[connection signal="button_up" from="Menu/ExitGame" to="Menu/ExitGame" method="_on_ExitGame_button_up"]
+
+[connection signal="text_changed" from="Menu/NGMenu/Name" to="Menu/NGMenu/Name" method="_on_Name_text_changed"]
+
+[connection signal="button_up" from="Menu/NGMenu/Button" to="Menu/NGMenu/Button" method="_on_Button_button_up"]
+
+[connection signal="button_up" from="Menu/NGMenu/Cancel" to="Menu/NGMenu/Cancel" method="_on_Cancel_button_up"]
+
+[connection signal="about_to_show" from="Menu/LGMenu" to="Menu/LGMenu" method="_on_LGMenu_about_to_show"]
+
+[connection signal="id_pressed" from="Menu/LGMenu" to="Menu/LGMenu" method="_on_LGMenu_id_pressed"]
+
+

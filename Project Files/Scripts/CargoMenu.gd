@@ -24,6 +24,7 @@ func _on_Cargo_item_selected( index ):
 		drag.queue_free()
 	
 	$"DropArea".ignoreOnce = true
+	print(index)
 	ship.cargo.remove(index)
 	drag = load("res://Prefabs/Items/TestItem.tscn").instance()
 	drag.texture = get_item_icon(index)
