@@ -2,6 +2,7 @@ extends ItemList
 
 var ship
 var drag
+var cargoXindex = {}
 
 func _on_Menu_about_to_show():
 	ship =  $"/root/World/playerShip"
