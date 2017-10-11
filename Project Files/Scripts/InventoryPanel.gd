@@ -10,7 +10,5 @@ func invAdd(path):
 		var x = load(path).instance()
 		c.add_item(x.get_name(),x.texture, true)
 		c.set_item_metadata(c.get_item_count() - 1,$"../../Cargo".drag.get_filename())
-		print(c.get_item_count())
-		print( $"../../Cargo".drag.get_filename())
 		$"../../Cargo".drag.queue_free()
 		$"../../Cargo".drag = null
