@@ -1,0 +1,16 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Someone is Crazy and it's me.wav-01065955bcd5c01bc5ff9edb466b9bbb.sample"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
