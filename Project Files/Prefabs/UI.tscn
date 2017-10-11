@@ -19,7 +19,7 @@ extents = Vector2( 146.383, 158.686 )
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 301.629, 68.7859 )
+extents = Vector2( 301.629, 29.214 )
 
 [node name="UI" type="CanvasLayer"]
 
@@ -230,6 +230,8 @@ script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Menu/Drop/DropArea"]
 
+position = Vector2( 151.784, 33.1615 )
+scale = Vector2( 0.506689, 1 )
 shape = SubResource( 1 )
 
 [connection signal="button_up" from="TextureButton" to="TextureButton" method="_on_TextureButton_button_up"]
