@@ -23,6 +23,7 @@ func _process(delta):
 func _on_Cargo_item_selected( index ):
 	if(drag != null):
 		drag.queue_free()
+	remove_item(index)
 	drag = load("res://Prefabs/Items/TestItem.tscn").instance()
 	drag.texture = get_item_icon(index)
 	$"../".add_child(drag)
