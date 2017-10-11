@@ -16,6 +16,10 @@ boot_splash/image="res://Sprites/Ui Sprites/Splash-Screen.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
+[export]
+
+=false
+
 [gdnative]
 
 singletons=[  ]
