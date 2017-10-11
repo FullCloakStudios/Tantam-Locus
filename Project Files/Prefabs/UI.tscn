@@ -32,9 +32,10 @@ func _on_Drop_item_selected( index ):
 	if(Cargo.drag != null):
 		Cargo.drag.queue_free()
 	
-	$\"DropArea\".ignoreOnce = true
 	ship.removeCargo(index)
-	Cargo.drag = load(\"res://Prefabs/Items/TestItem.tscn\").instance()
+	
+	$\"DropArea\".ignoreOnce = true
+	Cargo.drag = load(get_item_metadata(index)).instance()
 	Cargo.drag.texture = get_item_icon(index)
 	$\"../\".add_child(Cargo.drag)
 	
@@ -264,9 +265,9 @@ shape = SubResource( 3 )
 
 [connection signal="about_to_show" from="Menu" to="Menu/Cargo" method="_on_Menu_about_to_show"]
 
-[connection signal="popup_hide" from="Menu" to="Menu/Drop" method="_on_Menu_popup_hide"]
-
 [connection signal="popup_hide" from="Menu" to="Menu/Cargo" method="_on_Menu_popup_hide"]
+
+[connection signal="popup_hide" from="Menu" to="Menu/Drop" method="_on_Menu_popup_hide"]
 
 [connection signal="item_selected" from="Menu/Cargo" to="Menu/Cargo" method="_on_Cargo_item_selected"]
 

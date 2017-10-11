@@ -459,7 +459,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Backdrop001" type="Sprite" parent="Menu"]
 
-position = Vector2( 511.649, 320.042 )
+position = Vector2( 515.955, 359.931 )
 scale = Vector2( 1.29, 1.2 )
 z = -10
 texture = ExtResource( 9 )
