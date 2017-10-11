@@ -12,7 +12,7 @@ func _on_Menu_about_to_show():
 		var x = load(i).instance()
 		add_item(x.get_name(),x.texture, true)
 		cargoXindex[index] = i
-		++index
+		index += 1
 
 
 func _on_Menu_popup_hide():
@@ -28,6 +28,7 @@ func _on_Cargo_item_selected( index ):
 	if(drag != null):
 		drag.queue_free()
 	$"DropArea".ignoreOnce = true
+	ship.cargo.remove(cargoXindex[index])
 	drag = load("res://Prefabs/Items/TestItem.tscn").instance()
 	drag.texture = get_item_icon(index)
 	$"../".add_child(drag)
