@@ -7,9 +7,12 @@ var cargoXindex = {}
 func _on_Menu_about_to_show():
 	ship =  $"/root/World/playerShip"
 	clear()
+	var index = 0
 	for i in ship.cargo:
 		var x = load(i).instance()
 		add_item(x.get_name(),x.texture, true)
+		cargoXindex[index] = i
+		++index
 
 
 func _on_Menu_popup_hide():
