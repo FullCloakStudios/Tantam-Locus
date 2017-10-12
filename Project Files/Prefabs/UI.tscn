@@ -34,6 +34,7 @@ func _on_Menu_popup_hide():
 	clear()
 
 
+
 func _on_Drop_item_selected( index ):
 	var ship =  $\"/root/World/playerShip\"
 	var Cargo = $\"../Cargo\"
