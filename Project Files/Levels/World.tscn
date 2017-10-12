@@ -60,6 +60,8 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Items" type="Node2D" parent="."]
 
+editor/display_folded = true
+
 [node name="TestItem" parent="Items" instance=ExtResource( 8 )]
 
 position = Vector2( -171.454, -338.669 )
