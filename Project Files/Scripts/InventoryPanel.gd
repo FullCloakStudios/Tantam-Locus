@@ -2,10 +2,14 @@ extends Area2D
 
 var ignoreOnce = false
 
+export(bool) var isCargo
+
 func invAdd(path):
 	if(ignoreOnce == true):
 		ignoreOnce = false
 	else:
+		if(isCargo):
+			$"/root/World/playerShip".addCargo($"../../Cargo".drag.get_filename())
 		var c = $"../"
 		var x = load(path).instance()
 		c.add_item(x.get_name(),x.texture, true)

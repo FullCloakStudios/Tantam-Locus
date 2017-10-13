@@ -15,6 +15,10 @@ func _on_Menu_about_to_show():
 
 func _on_Menu_popup_hide():
 	ship.shouldMove = true
+	if(drag != null):
+		ship.addCargo(drag.get_filename())
+		drag.queue_free()
+		drag = null
 
 
 func _process(delta):

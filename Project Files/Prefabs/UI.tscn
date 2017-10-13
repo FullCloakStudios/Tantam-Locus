@@ -226,6 +226,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 10 )
+isCargo = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Menu/Cargo/DropArea"]
 
@@ -263,6 +264,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 10 )
+isCargo = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Menu/Drop/DropArea"]
 
