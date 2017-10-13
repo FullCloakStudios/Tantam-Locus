@@ -26,6 +26,8 @@ var cargoSpace
 var doPickup = true
 var hullParts = ["res://Prefabs/ShipParts/HelmBasic.tscn", "res://Prefabs/ShipParts/CargoBasic.tscn", "res://Prefabs/ShipParts/EngineBasic.tscn"]
 
+
+
 func _ready():
 	ship = get_node(ship)
 	var i = 0
@@ -133,3 +135,6 @@ func save():
 		Hull = Hull
 	}
 	return saveData
+
+func switchToPerson(dir):
+	print(dir)
