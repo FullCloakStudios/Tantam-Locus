@@ -3,7 +3,7 @@ extends KinematicBody2D
 export(NodePath) var ship
 var speed
 var shipPos = Vector2()
-var shouldMove = true
+var shouldMove = false
 
 export(String) var gunfire
 var firerate = 1
@@ -54,7 +54,8 @@ func _fixed_process(delta):
 
 
 func _process(delta):
-	rotation = ( get_node(".").position.angle_to_point( get_global_mouse_position() ) + deg2rad(-90) )
+	if(shouldMove):
+		rotation = ( get_node(".").position.angle_to_point( get_global_mouse_position() ) + deg2rad(-90) )
 
 
 
