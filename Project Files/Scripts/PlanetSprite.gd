@@ -6,8 +6,9 @@ const cont = [preload("res://Sprites/PlanetStuff/Cont1.png")]
 
 #const atmo Later mabye
 
-var x
+onready var x = $"/root/World/playerShip"
 var i = Vector2(1,1)
+var doLand = false
 
 func _ready():
 	randomize()
@@ -17,9 +18,21 @@ func _ready():
 	modulate = Color(rand_range(0,1),rand_range(0,1),rand_range(0,1))
 	$"PlanetCon".modulate = Color(rand_range(0,1),rand_range(0,1),rand_range(0,1))
 
+func _process(delta):
+	if(doLand == true):
+		if(!x.scale.x < 0.1):
+			x.scale = i / 1.1
+			i = x.scale
+	elif(!x.scale.x > 0.8):
+			x.scale = i * 1.1
+			i = x.scale
+#		if(x.scale < 0.1):
+#			pass do a landing thing with this later
+
 func _on_Area2D_body_entered( body ):
 		if(body == $"/root/World/playerShip"):
-			var x = $"/root/World/playerShip"
-			if(!x.scale.x < 0.1):
-				x.scale = i / 1.1
-				i = x.scale
+			doLand = true
+
+func _on_Area2D_body_exited( body ):
+		if(body == $"/root/World/playerShip"):
+			doLand = false
