@@ -7,7 +7,7 @@ const cont = [preload("res://Sprites/PlanetStuff/Cont1.png")]
 #const atmo Later mabye
 
 var x
-var i
+var i = Vector2(1,1)
 
 func _ready():
 	randomize()
@@ -17,16 +17,9 @@ func _ready():
 	modulate = Color(rand_range(0,1),rand_range(0,1),rand_range(0,1))
 	$"PlanetCon".modulate = Color(rand_range(0,1),rand_range(0,1),rand_range(0,1))
 
-func _process(delta):
-	if(x != null):
-		x.scale = i / 1.1
-		i = x.scale
-		if(i.x < 0.1):
-			print("do stuff")
-			x = null
-
 func _on_Area2D_body_entered( body ):
 		if(body == $"/root/World/playerShip"):
-			if(x != null && !i.x < 0.1):
+			var x = $"/root/World/playerShip"
+			if(!x.scale.x < 0.1):
 				x.scale = i / 1.1
 				i = x.scale
