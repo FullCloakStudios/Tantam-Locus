@@ -27,7 +27,7 @@ func _on_Menu_popup_hide():
 	for i in items:
 		if(get_item_metadata(index) != null):
 			var obj = load(get_item_metadata(index)).instance()
-			obj.position = $\"/root/World/playerShip\".position + Vector2(100,0)
+			obj.position = $\"/root/World/playerShip\".position + Vector2(200,0)
 			$\"/root/World/Items\".add_child(obj)
 		index += 1
 	
