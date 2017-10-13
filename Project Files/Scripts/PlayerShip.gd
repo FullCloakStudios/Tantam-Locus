@@ -18,7 +18,6 @@ var Shieldd = 100
 var Armourd = 100
 
 var doSplode = true
-var landing = false
 
 var offset = Vector2()
 
@@ -72,7 +71,7 @@ func fire():
 
 
 func move(delta):
-	if(Input.is_mouse_button_pressed(BUTTON_LEFT) && !landing && shouldMove):
+	if(Input.is_mouse_button_pressed(BUTTON_LEFT) && shouldMove):
 		offset = ship.position - get_global_mouse_position()
 	else:
 		offset = offset / 1.09

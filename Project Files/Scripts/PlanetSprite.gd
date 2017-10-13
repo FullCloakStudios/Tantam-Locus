@@ -27,6 +27,6 @@ func _process(delta):
 
 func _on_Area2D_body_entered( body ):
 		if(body == $"/root/World/playerShip"):
-			x = body
-			i = body.scale
-			body.landing = true
+			if(x != null && !i.x < 0.1):
+				x.scale = i / 1.1
+				i = x.scale
