@@ -1,5 +1,21 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/PlanetSurface.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/PlanetStuff/PlanetSurface1.png" type="Texture" id=2]
+[ext_resource path="res://Prefabs/Captain.tscn" type="PackedScene" id=3]
 
 [node name="PlanetSurface" type="Node2D"]
+
+script = ExtResource( 1 )
+
+[node name="Land" type="Sprite" parent="."]
+
+scale = Vector2( 7, 7 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="captain" parent="." instance=ExtResource( 3 )]
+
+position = Vector2( -4.35791, 1.19824 )
 
 
