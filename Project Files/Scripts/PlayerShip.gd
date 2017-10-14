@@ -3,7 +3,7 @@ extends KinematicBody2D
 export(NodePath) var ship
 var speed
 var shipPos = Vector2()
-var shouldMove = false
+var shouldMove = true
 
 export(String) var gunfire
 var firerate = 1
@@ -26,6 +26,7 @@ var cargoSpace
 var doPickup = true
 var hullParts = ["res://Prefabs/ShipParts/HelmBasic.tscn", "res://Prefabs/ShipParts/CargoBasic.tscn", "res://Prefabs/ShipParts/EngineBasic.tscn"]
 
+var isCaptainFocus = false
 
 
 func _ready():
@@ -54,7 +55,7 @@ func _fixed_process(delta):
 
 
 func _process(delta):
-	if(shouldMove):
+	if(shouldMove && !isCaptainFocus):
 		rotation = ( get_node(".").position.angle_to_point( get_global_mouse_position() ) + deg2rad(-90) )
 
 
@@ -74,7 +75,7 @@ func fire():
 
 
 func move(delta):
-	if(Input.is_mouse_button_pressed(BUTTON_LEFT) && shouldMove):
+	if(Input.is_mouse_button_pressed(BUTTON_LEFT) && shouldMove && !isCaptainFocus):
 		offset = ship.position - get_global_mouse_position()
 	else:
 		offset = offset / 1.09
