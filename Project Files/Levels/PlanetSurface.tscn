@@ -1,9 +1,14 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="TileSet" id=1]
+
+resource_local_to_scene = true
+_sections_unfolded = [ "Resource" ]
 
 [node name="PlanetSurface" type="TileMap"]
 
 mode = 0
-tile_set = null
+tile_set = SubResource( 1 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
