@@ -9,4 +9,6 @@ texture = ExtResource( 1 )
 script = ExtResource( 2 )
 cargoSpace = 2
 
+[node name="Inside" type="Sprite" parent="."]
+
 
