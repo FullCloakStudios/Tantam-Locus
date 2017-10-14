@@ -1,8 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Sprites/ShipParts/HelmBasic.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/HelmStats.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/ShipParts/HelmBasic-Inside.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 1.65392, 8.70216 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 1.57394, 5.25819 )
 
 [node name="Helm" type="Sprite"]
 
@@ -12,7 +22,6 @@ turnspeed = null
 
 [node name="Inside" type="Sprite" parent="."]
 
-visible = false
 z = 1
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Visibility", "Z" ]
@@ -32,7 +41,29 @@ _sections_unfolded = [ "Collision" ]
 
 scale = Vector2( 3.3, 3.3 )
 build_mode = 0
-polygon = PoolVector2Array( -8.70637, 9.55752, -7.55926, 4.03429, -5.70715, 4.04689, -5.68195, 1.14903, -6.96709, 1.08603, -6.26153, -1.81183, -5.79535, -3.46235, -4.93859, -5.22627, -3.11168, -7.19177, -1.59975, -8.03593, -0.478403, -8.52731, 0.73114, -8.52731, 2.65885, -8.04853, 4.27157, -7.02798, 5.46851, -5.59165, 6.33787, -3.95373, 6.87965, -2.24021, 7.53481, -0.0101166, 7.8498, 1.56481, 8.30338, 4.03429, 8.65616, 6.69276, 8.80735, 9.64102, 9.61372, 9.60322, 9.52552, 6.49117, 9.21054, 4.53827, 8.73176, 1.90499, 8.16478, -0.879475, 7.23243, -4.04192, 6.35047, -5.74284, 4.83854, -7.63275, 3.51561, -8.7415, 2.35646, -9.14468, 1.23512, -9.38407, -0.0374233, -9.52266, -1.43596, -9.29587, -2.94788, -8.36352, -4.17003, -7.29257, -5.41737, -5.80584, -6.32452, -4.18052, -6.8033, -2.31581, -7.40807, -0.0857131, -8.08844, 2.30817, -8.50422, 5.14304, -9.27492, 9.63154 )
+polygon = PoolVector2Array( -6.98447, 1.21682, -6.26153, -1.81183, -5.79535, -3.46235, -4.93859, -5.22627, -3.11168, -7.19177, -1.59975, -8.03593, -0.478403, -8.52731, 0.73114, -8.52731, 2.65885, -8.04853, 4.27157, -7.02798, 5.46851, -5.59165, 6.33787, -3.95373, 6.87965, -2.24021, 7.53481, -0.0101166, 7.8498, 1.56481, 8.30338, 4.03429, 8.65616, 6.69276, 8.80735, 9.64102, 9.61372, 9.60322, 9.52552, 6.49117, 9.21054, 4.53827, 8.73176, 1.90499, 8.16478, -0.879475, 7.23243, -4.04192, 6.35047, -5.74284, 4.83854, -7.63275, 3.51561, -8.7415, 2.35646, -9.14468, 1.23512, -9.38407, -0.0374233, -9.52266, -1.43596, -9.29587, -2.94788, -8.36352, -4.17003, -7.29257, -5.41737, -5.80584, -6.32452, -4.18052, -6.8033, -2.31581, -7.40807, -0.0857131, -7.71042, 1.1889 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside/Walls"]
+
+position = Vector2( -28.0842, 23.1084 )
+rotation = 0.155437
+shape = SubResource( 1 )
+
+[node name="Door" type="StaticBody2D" parent="Inside"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside/Door"]
+
+position = Vector2( -25.2379, 9.31034 )
+rotation = 0.160207
+shape = SubResource( 2 )
 
 
