@@ -19,10 +19,12 @@ func doorOpen(state, body):
 
 func _on_Area2D_body_entered( body ):
 	doorOpen(true, body)
+	print(\"open\")
 
 
 func _on_Area2D_body_exited( body ):
 	doorOpen(false, body)
+	print(\"close\")
 "
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -48,29 +50,6 @@ visible = false
 z = 1
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Visibility", "Z" ]
-
-[node name="Walls" type="StaticBody2D" parent="Inside"]
-
-input_pickable = false
-collision_layer = 2
-collision_mask = 2
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Collision" ]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Inside/Walls"]
-
-scale = Vector2( 3.3, 3.3 )
-build_mode = 0
-polygon = PoolVector2Array( -6.98447, 1.21682, -6.26153, -1.81183, -5.79535, -3.46235, -4.93859, -5.22627, -3.11168, -7.19177, -1.59975, -8.03593, -0.478403, -8.52731, 0.73114, -8.52731, 2.65885, -8.04853, 4.27157, -7.02798, 5.46851, -5.59165, 6.33787, -3.95373, 6.87965, -2.24021, 7.53481, -0.0101166, 7.8498, 1.56481, 8.30338, 4.03429, 8.65616, 6.69276, 8.80735, 9.64102, 9.61372, 9.60322, 9.52552, 6.49117, 9.21054, 4.53827, 8.73176, 1.90499, 8.16478, -0.879475, 7.23243, -4.04192, 6.35047, -5.74284, 4.83854, -7.63275, 3.51561, -8.7415, 2.35646, -9.14468, 1.23512, -9.38407, -0.0374233, -9.52266, -1.43596, -9.29587, -2.94788, -8.36352, -4.17003, -7.29257, -5.41737, -5.80584, -6.32452, -4.18052, -6.8033, -2.31581, -7.40807, -0.0857131, -7.71042, 1.1889 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Inside/Walls"]
-
-build_mode = 0
-polygon = PoolVector2Array( -27.7596, 14.7258, -24.8288, 15.1445, -28.1783, 32.1016, -31.1092, 31.8923 )
 
 [node name="Door" type="StaticBody2D" parent="Inside"]
 
@@ -100,15 +79,43 @@ rotation = 0.16057
 scale = Vector2( 0.192103, 0.329245 )
 texture = ExtResource( 4 )
 
+[node name="Walls" type="StaticBody2D" parent="Inside"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 2
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Inside/Walls"]
+
+scale = Vector2( 3.3, 3.3 )
+build_mode = 0
+polygon = PoolVector2Array( -6.98447, 1.21682, -6.26153, -1.81183, -5.79535, -3.46235, -4.93859, -5.22627, -3.11168, -7.19177, -1.59975, -8.03593, -0.478403, -8.52731, 0.73114, -8.52731, 2.65885, -8.04853, 4.27157, -7.02798, 5.46851, -5.59165, 6.33787, -3.95373, 6.87965, -2.24021, 7.53481, -0.0101166, 7.8498, 1.56481, 8.30338, 4.03429, 8.65616, 6.69276, 8.80735, 9.64102, 9.61372, 9.60322, 9.52552, 6.49117, 9.21054, 4.53827, 8.73176, 1.90499, 8.16478, -0.879475, 7.23243, -4.04192, 6.35047, -5.74284, 4.83854, -7.63275, 3.51561, -8.7415, 2.35646, -9.14468, 1.23512, -9.38407, -0.0374233, -9.52266, -1.43596, -9.29587, -2.94788, -8.36352, -4.17003, -7.29257, -5.41737, -5.80584, -6.32452, -4.18052, -6.8033, -2.31581, -7.40807, -0.0857131, -7.71042, 1.1889 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Inside/Walls"]
+
+build_mode = 0
+polygon = PoolVector2Array( -27.7596, 14.7258, -24.8288, 15.1445, -28.1783, 32.1016, -31.1092, 31.8923 )
+
 [node name="Area2D" type="Area2D" parent="Inside"]
 
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+collision_layer = 2
+collision_mask = 2
 audio_bus_override = false
 audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inside/Area2D"]
 
