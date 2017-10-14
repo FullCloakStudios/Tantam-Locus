@@ -12,7 +12,7 @@ turnspeed = null
 
 [node name="Inside" type="Sprite" parent="."]
 
-z = 10
+z = 1
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Visibility", "Z" ]
 

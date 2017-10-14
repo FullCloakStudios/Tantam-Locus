@@ -66,8 +66,10 @@ func _on_Switch_button_up():
 	$\"/root/World/playerShip\".switchToPerson(!type6)
 	type6 = !type6
 	if(type6):
+		var cap = load(\"res://Prefabs/Captain.tscn\").instance()
+		cap.position = $\"/root/World/playerShip/Helm\".position
+		$\"/root/World/playerShip\".add_child(cap)
 		$\"/root/World/playerShip/captain/Camera\".make_current()
-		$\"/root/World/playerShip/captain\".shouldMove = true
 		$\"/root/World/playerShip\".shouldMove = false
 	else:
 		$\"/root/World/playerShip/Camera\".make_current()
