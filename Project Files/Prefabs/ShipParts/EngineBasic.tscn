@@ -22,6 +22,7 @@ thrust = 200.0
 
 [node name="Inside" type="Sprite" parent="."]
 
+visible = false
 texture = ExtResource( 3 )
 
 [node name="Walls" type="StaticBody2D" parent="Inside"]
