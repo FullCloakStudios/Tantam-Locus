@@ -19,13 +19,9 @@ func doorOpen(state, body):
 
 func _on_Area2D_body_entered( body ):
 	doorOpen(true, body)
-	print(\"open\")
-
 
 func _on_Area2D_body_exited( body ):
-	doorOpen(false, body)
-	print(\"close\")
-"
+	doorOpen(false, body)"
 
 [sub_resource type="RectangleShape2D" id=2]
 
