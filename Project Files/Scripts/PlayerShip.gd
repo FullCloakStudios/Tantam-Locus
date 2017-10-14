@@ -85,7 +85,7 @@ func move(delta):
 
 
 func shouldFire():
-	if($"../Marker" != null):
+	if($"../".has_node("Marker")):
 		var direction = Vector2(cos(rotation), sin(rotation))
 		var vecMar = $"../Marker".position - position
 		if(vecMar.dot(direction) > -20 && vecMar.dot(direction) < 20):

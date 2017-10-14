@@ -60,15 +60,17 @@ extents = Vector2( 301.629, 29.214 )
 script/source = "extends Button
 
 var type6 = false
+var cap
 
 func _on_Switch_button_up():
 	$\"../\".hide()
 	$\"/root/World/playerShip\".switchToPerson(!type6)
 	type6 = !type6
 	if(type6):
-		var cap = load(\"res://Prefabs/Captain.tscn\").instance()
+		if(!get_tree().get_root().get_node(\"World/playerShip\").has_node(\"captain\")):
+			cap = load(\"res://Prefabs/Captain.tscn\").instance()
+			$\"/root/World/playerShip\".add_child(cap)
 		cap.position = $\"/root/World/playerShip/Helm\".position
-		$\"/root/World/playerShip\".add_child(cap)
 		$\"/root/World/playerShip/captain/Camera\".make_current()
 		$\"/root/World/playerShip\".shouldMove = false
 	else:
