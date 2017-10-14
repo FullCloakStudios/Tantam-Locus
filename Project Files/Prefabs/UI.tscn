@@ -75,16 +75,16 @@ func _on_Switch_button_up():
 		$\"/root/World/playerShip/captain/Camera\".make_current()
 		ship.isCaptainFocus = true
 		$\"/root/World/playerShip/captain\".shouldMove = true
-		ship.get_node(\"/Helm/Inside\").show()
-		ship.get_node(\"/Cargo/Inside\").show()
-		ship.get_node(\"/Engine/Inside\").show()
+		$\"/root/World/playerShip/Helm/Inside\".show()
+		$\"/root/World/playerShip/Cargo/Inside\".show()
+		$\"/root/World/playerShip/Engine/Inside\".show()
 	else:
 		$\"/root/World/playerShip/Camera\".make_current()
 		$\"/root/World/playerShip/captain\".shouldMove = false
 		ship.isCaptainFocus = false
-		ship.get_node(\"/Helm/Inside\").hide()
-		ship.get_node(\"/Cargo/Inside\").hide()
-		ship.get_node(\"/Engine/Inside\").hide()
+		$\"/root/World/playerShip/Helm/Inside\".hide()
+		$\"/root/World/playerShip/Cargo/Inside\".hide()
+		$\"/root/World/playerShip/Engine/Inside\".hide()
 "
 
 [node name="UI" type="CanvasLayer"]
