@@ -18,7 +18,7 @@ func _ready():
 	$"PlanetCon".rotation = rand_range(0,1)
 	modulate = Color(rand_range(0,1),rand_range(0,1),rand_range(0,1))
 	$"PlanetCon".modulate = Color(rand_range(0,1),rand_range(0,1),rand_range(0,1))
-	currentScene = $"/root".get_child($"/root".get_child_count() -1)
+	currentScene = $"/root".get_children()
 
 
 func _process(delta):
@@ -31,7 +31,10 @@ func _process(delta):
 			x.scale = i * 1.1
 			i = x.scale
 		if(x.scale.x < 0.1):
-			var ship = $"root/World/playerShip"
+			var index7 = 0
+				if(o.get_name() != "playerShip"):
+					o.queue_free()
+			currentScene
 			currentScene.queue_free()
 			var s = load("res://Levels/PlanetSurface.tscn")
 			currentScene = s.instance()
