@@ -18,6 +18,7 @@ func _draw():
 func generate(pos, radi):
 	var terr = load("res://Prefabs/Terrain.tscn").instance()
 	terr.texture = possTerrain[rand_range(0,1)]
+	terr.modulate = planetModulate
 	terr.position = pos + Vector2(rand_range(-radi,radi),rand_range(-radi,radi))
 	add_child(terr)
 	
