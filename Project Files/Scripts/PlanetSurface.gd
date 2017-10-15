@@ -11,6 +11,8 @@ func _ready():
 	randomize()
 	planetModulate = Color(rand_range(0,1),rand_range(0,1),rand_range(0,1))
 	generate($captain.position,10)
+	hide()
+	show()
 
 func _draw():
 	draw_circle($captain.position, 500, planetModulate)
