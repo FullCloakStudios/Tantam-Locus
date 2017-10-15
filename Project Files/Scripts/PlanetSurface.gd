@@ -1,10 +1,14 @@
 extends Node2D
 
-onready var planetModulate = Color(rand_range(0,1),rand_range(0,1),rand_range(0,1))
+var planetModulate 
 var disCheck
+
+var posArray = PoolVector2Array()
+var objArray = PoolStringArray()
 
 func _ready():
 	randomize()
+	planetModulate = Color(rand_range(0,1),rand_range(0,1),rand_range(0,1))
 
 func _draw():
 	draw_circle($captain.position, 500, planetModulate)
