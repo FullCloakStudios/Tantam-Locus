@@ -31,7 +31,7 @@ func _process(delta):
 			x.scale = i * 1.1
 			i = x.scale
 		if(x.scale.x < 0.1):
-			var index7 = 0
+			for o in currentScene:
 				if(o.get_name() != "playerShip"):
 					o.queue_free()
 			currentScene
