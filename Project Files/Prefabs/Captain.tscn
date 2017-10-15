@@ -57,16 +57,16 @@ _sections_unfolded = [ "Drag Margin" ]
 
 [node name="Light2D" type="Light2D" parent="."]
 
-position = Vector2( 0, -82 )
+position = Vector2( 0.282812, -7.92495 )
 scale = Vector2( 1, 2.3088 )
 enabled = true
 editor_only = false
 texture = ExtResource( 3 )
-offset = Vector2( 0, 16 )
+offset = Vector2( 0, -16 )
 texture_scale = 1.0
 color = Color( 1, 1, 1, 1 )
 energy = 1.0
-mode = 3
+mode = 0
 range_height = 0.0
 range_z_min = -1024
 range_z_max = 1024
