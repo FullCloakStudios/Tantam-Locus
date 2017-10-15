@@ -5,7 +5,7 @@ var disCheck
 
 var posArray = PoolVector2Array()
 var objArray = PoolStringArray()
-var possTerrain = [preload("res://Sprites/Tileset2.png"),preload("res://Sprites/Tileset3.png")]
+var possTerrain = [preload("res://Prefabs/TerrainTemplate.tscn")]
 
 func _ready():
 	randomize()
@@ -19,7 +19,7 @@ func _draw():
 	disCheck = $captain.position
 
 func generate(pos, radi):
-	var terr = load(possTerrain[rand_range(0,1)]).instance()
+	var terr = possTerrain[rand_range(0,0)].instance()
 	terr.modulate = planetModulate
 	terr.position = pos + Vector2(rand_range(-radi,radi),rand_range(-radi,radi))
 	var sc = rand_range(terr.minScale,terr.maxScale)
