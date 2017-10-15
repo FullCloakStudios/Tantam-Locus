@@ -1,12 +1,16 @@
 extends Node2D
 
 onready var planetModulate = Color(rand_range(0,1),rand_range(0,1),rand_range(0,1))
-var surfaceLimit = 200
-var objects = Node2D[surfaceLimit]
+var disCheck
 
 func _ready():
 	randomize()
-	$"Land".modulate = planetModulate
-	var index = 0
-	while(index < surfaceLimit.size()):
-		#TODO Instance props randomly
+
+func _draw():
+	draw_circle($captain.position, 500, planetModulate)
+	disCheck = $captain.position
+
+func _process(delta):
+	if(disCheck.distance_to($captain.position) > 200):
+		hide()
+		show()
