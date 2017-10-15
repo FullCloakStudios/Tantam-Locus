@@ -1,5 +1,38 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
 
-[node name="TerrainTemplate" type="Node2D"]
+[ext_resource path="res://Sprites/Tileset2.png" type="Texture" id=1]
+
+[sub_resource type="OccluderPolygon2D" id=1]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -7.34476, -13.4045, 2.3597, -14.1872, 6.4293, -11.2132, 8.4641, -5.7349, 8.30758, 2.24779, 5.80321, 8.3522, -3.90124, 11.6392, -10.1622, 7.72611, -13.2926, 1.15212, -13.1361, -5.57838, -10.4752, -9.33494 )
+
+[node name="TerrainTemplate" type="Sprite"]
+
+scale = Vector2( 0.07, 0.07 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+input_pickable = false
+collision_layer = 2
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+
+build_mode = 0
+polygon = PoolVector2Array( 7.92315, -7.91283, 8.96884, -4.51434, 9.23026, 1.75981, 6.61603, 7.77253, 2.6947, 11.4324, -2.53376, 12.7396, -6.58171, 11.7507, -11.5259, 6.9478, -15.1987, 2.00362, -15.1987, -3.9294, -11.9497, -9.5799, -7.28802, -13.6765, 2.31782, -14.1003, 6.55569, -11.1338 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+
+occluder = SubResource( 1 )
+light_mask = 1
 
 
