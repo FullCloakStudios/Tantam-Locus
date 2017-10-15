@@ -332,7 +332,6 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="NGMenu" type="PopupPanel" parent="Menu"]
 
-editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
