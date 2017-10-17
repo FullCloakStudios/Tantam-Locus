@@ -2,19 +2,24 @@ extends Node2D
 
 var planetModulate 
 var disCheck
+var firstPro
+
+onready var captain = $"/root/World/playerShip/captain"
 
 var possTerrain = [preload("res://Prefabs/TerrainTemplate.tscn")]
 
 func _ready():
 	randomize()
 	planetModulate = Color(rand_range(0,1),rand_range(0,1),rand_range(0,1))
-	generate(rand_range(20,35),$captain.position,100,false)
+	generate(rand_range(20,35),captain.position,100,false)
 	hide()
 	show()
+	firstPro = true
+
 
 func _draw():
-	draw_circle($captain.position, 500, planetModulate)
-	disCheck = $captain.position
+	draw_circle(captain.position, 500, planetModulate)
+	disCheck = captain.position
 
 func generate(amount, pos, radi, safe):
 	var index = 0
@@ -33,7 +38,11 @@ func generate(amount, pos, radi, safe):
 	
 
 func _process(delta):
-	if(disCheck.distance_to($captain.position) > 200):
+	if(disCheck.distance_to(captain.position) > 200):
 		hide()
 		show()
-		generate(rand_range(40,69),$captain.position,100,true)
+		generate(rand_range(40,69),captain.position,100,true)
+	if(firstPro):
+		var ui = load("res://Prefabs/UI.tscn").instance()
+		$"/root/World".add_child(ui)
+		firstPro = false

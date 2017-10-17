@@ -11,6 +11,7 @@ var i = Vector2(1,1)
 var doLand = false
 var currentScene
 
+
 func _ready():
 	randomize()
 	texture = base[round(rand_range(0,0))] #add to this for more random
@@ -18,10 +19,12 @@ func _ready():
 	$"PlanetCon".rotation = rand_range(0,1)
 	modulate = Color(rand_range(0,1),rand_range(0,1),rand_range(0,1))
 	$"PlanetCon".modulate = Color(rand_range(0,1),rand_range(0,1),rand_range(0,1))
-	currentScene = $"/root".get_children()
+	currentScene = $"/root/World".get_children()
 
 
 func _process(delta):
+	
+	
 	if(doLand == true):
 		
 		if(!x.scale.x < 0.1):
@@ -34,11 +37,14 @@ func _process(delta):
 			for o in currentScene:
 				if(o.get_name() != "playerShip"):
 					o.queue_free()
-			currentScene
-			currentScene.queue_free()
 			var s = load("res://Levels/PlanetSurface.tscn")
 			currentScene = s.instance()
-			get_tree().get_root().add_child(currentScene)
+			$"/root/World".add_child(currentScene)
+			var ship = $"/root/World/playerShip"
+			ship.scale = Vector2(1,1)
+			ship.shouldMove = false
+			ship.z = 1
+
 
 
 func _on_Area2D_body_entered( body ):

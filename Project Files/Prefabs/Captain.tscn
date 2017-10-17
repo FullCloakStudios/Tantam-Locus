@@ -12,6 +12,7 @@ height = 20.0
 
 [node name="captain" type="KinematicBody2D"]
 
+visible = false
 scale = Vector2( 0.2, 0.2 )
 z = 1
 input_pickable = false
@@ -35,7 +36,7 @@ _sections_unfolded = [ "Transform" ]
 
 anchor_mode = 1
 rotating = false
-current = true
+current = false
 zoom = Vector2( 0.1, 0.1 )
 limit_left = -10000000
 limit_top = -10000000
