@@ -19,6 +19,7 @@ cargoSpace = 2
 
 visible = false
 texture = ExtResource( 3 )
+_sections_unfolded = [ "Z" ]
 
 [node name="Walls" type="StaticBody2D" parent="Inside"]
 

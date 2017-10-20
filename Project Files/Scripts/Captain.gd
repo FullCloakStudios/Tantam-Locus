@@ -14,4 +14,4 @@ func _fixed_process(delta):
 
 func _process(delta):
 	if(shouldMove):
-		rotation = (global_position.angle_to_point( get_global_mouse_position() ) + deg2rad(-90) )
+		rotation = (global_position.angle_to_point( get_global_mouse_position() ) + deg2rad(-90 - $"../".rotation_deg) )
