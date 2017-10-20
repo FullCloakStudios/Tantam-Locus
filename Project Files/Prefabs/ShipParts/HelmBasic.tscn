@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Sprites/ShipParts/HelmBasic.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/HelmStats.gd" type="Script" id=2]
@@ -32,6 +32,24 @@ extents = Vector2( 1.41297, 5.25819 )
 
 custom_solver_bias = 0.0
 extents = Vector2( 8.46289, 5.99631 )
+
+[sub_resource type="GDScript" id=5]
+
+script/source = "extends Area2D
+
+func _ready():
+	pass
+
+
+func _on_Area2D2_body_entered( body ):
+	if($\"/root/World/playerShip\".isCaptainFocus):
+			$\"/root/World/UI/Menu/Switch\".switchControl()
+"
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 2.74592, 2.52954 )
 
 [node name="Helm" type="Sprite"]
 
@@ -119,8 +137,29 @@ rotation = 0.16057
 shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
+[node name="Area2D2" type="Area2D" parent="Inside"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 2
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+script = SubResource( 5 )
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside/Area2D2"]
+
+position = Vector2( -0.127007, -23.8361 )
+shape = SubResource( 4 )
+
 [connection signal="body_entered" from="Inside/Area2D" to="Inside/Door" method="_on_Area2D_body_entered"]
 
 [connection signal="body_exited" from="Inside/Area2D" to="Inside/Door" method="_on_Area2D_body_exited"]
+
+[connection signal="body_entered" from="Inside/Area2D2" to="Inside/Area2D2" method="_on_Area2D2_body_entered"]
 
 

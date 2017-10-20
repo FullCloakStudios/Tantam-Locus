@@ -10,7 +10,7 @@ onready var x = $"/root/World/playerShip"
 var i = Vector2(1,1)
 var doLand = false
 var currentScene
-
+var rezize = false
 
 func _ready():
 	randomize()
@@ -24,6 +24,11 @@ func _ready():
 
 func _process(delta):
 	
+	if(rezize && x.scale.x < 0.9):
+		x.scale = i * 1.1
+		i = x.scale
+	if(!x.scale.x < 0.9):
+		rezize = false
 	
 	if(doLand == true):
 		
@@ -54,3 +59,4 @@ func _on_Area2D_body_entered( body ):
 func _on_Area2D_body_exited( body ):
 		if(body == $"/root/World/playerShip"):
 			doLand = false
+			rezize = true

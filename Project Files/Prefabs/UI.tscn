@@ -65,6 +65,11 @@ var cap
 onready var ship = $\"/root/World/playerShip\"
 
 func _on_Switch_button_up():
+	switchControl()
+	if(type6):
+		hide()
+
+func switchControl():
 	$\"../\".hide()
 	ship.switchToPerson(!type6)
 	type6 = !type6
@@ -73,6 +78,8 @@ func _on_Switch_button_up():
 			cap = load(\"res://Prefabs/Captain.tscn\").instance()
 			ship.add_child(cap)
 			cap.position = ship.get_node(\"Helm\").position
+		else:
+			$\"/root/World/playerShip/captain\".position = ship.get_node(\"Helm\").position + Vector2(0,10)
 		
 		$\"/root/World/playerShip/captain/Camera\".make_current()
 		ship.isCaptainFocus = true
@@ -92,6 +99,8 @@ func _on_Switch_button_up():
 		$\"/root/World/playerShip/Cargo/Inside\".hide()
 		$\"/root/World/playerShip/Engine/Inside\".hide()
 		$\"/root/World/playerShip/captain\".hide()
+	if(!type6):
+		show()
 
 "
 
