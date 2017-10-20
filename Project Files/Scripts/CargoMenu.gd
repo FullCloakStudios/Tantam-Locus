@@ -24,6 +24,11 @@ func _on_Menu_popup_hide():
 func _process(delta):
 	if(drag != null):
 		drag.set_global_position(get_global_mouse_position())
+		if(!Input.is_mouse_button_pressed(BUTTON_LEFT)):
+			drag.parInv.add_item(drag.get_name(),drag.texture, true)
+			drag.parInv.set_item_metadata(drag.parInv.get_item_count() -1, drag.get_filename())
+			drag.queue_free()
+			drag = null
 
 
 func _on_Cargo_item_selected( index ):
@@ -34,5 +39,6 @@ func _on_Cargo_item_selected( index ):
 	ship.removeCargo(index)
 	drag = load(get_item_metadata(index)).instance()
 	$"../".add_child(drag)
+	drag.parInv = $"."
 	
 	remove_item(index)

@@ -47,6 +47,7 @@ func _on_Drop_item_selected( index ):
 	Cargo.drag = load(get_item_metadata(index)).instance()
 	Cargo.drag.texture = get_item_icon(index)
 	$\"../\".add_child(Cargo.drag)
+	Cargo.drag.parInv = $\".\"
 	
 	remove_item(index)"
 
@@ -339,9 +340,9 @@ _sections_unfolded = [ "Rect" ]
 
 [connection signal="about_to_show" from="Menu" to="Menu/Cargo" method="_on_Menu_about_to_show"]
 
-[connection signal="popup_hide" from="Menu" to="Menu/Drop" method="_on_Menu_popup_hide"]
-
 [connection signal="popup_hide" from="Menu" to="Menu/Cargo" method="_on_Menu_popup_hide"]
+
+[connection signal="popup_hide" from="Menu" to="Menu/Drop" method="_on_Menu_popup_hide"]
 
 [connection signal="item_selected" from="Menu/Cargo" to="Menu/Cargo" method="_on_Cargo_item_selected"]
 
