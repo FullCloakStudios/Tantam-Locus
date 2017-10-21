@@ -13,9 +13,3 @@ Registered interface Native mobile
    At: drivers/gles3/rasterizer_gles3.cpp:122:_gl_debug_print() - GL ERROR: Source: OpenGL	Type: Performance	ID: 2	Severity: Medium	Message: Fragment shader recompiled due to state change.
 **ERROR**: Node not found: /root/World/playerShip
    At: scene/main/node.cpp:1518:get_node() - Condition ' !node ' is true. returned: __null
-**ERROR**: Node not found: /root/World/playerShip
-   At: scene/main/node.cpp:1518:get_node() - Condition ' !node ' is true. returned: __null
-**ERROR**: Node not found: /root/World/playerShip
-   At: scene/main/node.cpp:1518:get_node() - Condition ' !node ' is true. returned: __null
-**ERROR**: Node not found: /root/World/playerShip
-   At: scene/main/node.cpp:1518:get_node() - Condition ' !node ' is true. returned: __null
