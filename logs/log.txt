@@ -1,0 +1,311 @@
+OpenGL ES 3.0 Renderer: Intel(R) HD Graphics
+GLES3: max ubo light: 409
+GLES3: max ubo reflections: 455, ubo size: 144
+Boot splash path: res://Sprites/Ui Sprites/Splash-Screen.png
+Registered interface Native mobile
+SVG_GENERATION TIME: 0.493
+save presets
+save presets
+save presets
+save presets
+save presets
+try to see fs update2
+save presets
+it exists
+save presets
+erased cache for: res://Prefabs/Captain.tscn 1
+save presets
+erased cache for: res://Prefabs/ShipParts/CargoBasic.tscn 1
+save presets
+erased cache for: res://Prefabs/ShipParts/HelmBasic.tscn 1
+save presets
+erased cache for: res://Prefabs/UI.tscn 1
+save presets
+erased cache for: res://Scripts/Captain.gd 1
+save presets
+erased cache for: res://Scripts/PlanetSprite.gd 1
+save presets
+erased cache for: res://default_env.tres 1
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+regular import tried resource type for res://Prefabs/ShipParts/CargoBasic.tscn and its PackedScene
+save presets
+regular import tried resource type for res://Prefabs/ShipParts/HelmBasic.tscn and its PackedScene
+save presets
+regular import tried resource type for res://Prefabs/Captain.tscn and its PackedScene
+save presets
+regular import tried resource type for res://Prefabs/UI.tscn and its PackedScene
+save presets
+regular import tried resource type for res://Scripts/Captain.gd and its GDScript
+save presets
+save presets
+regular import tried resource type for res://Scripts/PlanetSprite.gd and its GDScript
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+regular import tried resource type for res://default_env.tres and its Environment
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+save presets
+from file: res://default_env.tres
+from file: res://icon.png
+loading scene DEFERRED
+actually loading it
+**ERROR**: Bug in bytecode compiler, unexpected operator #7 in parse tree while parsing expression.
+   At: modules/gdscript/gd_compiler.cpp:1042:_parse_expression() - Method/Function Failed, returning: 0
+cached: res://default_env.tres
+cached: res://icon.png
+**ERROR**: GL ERROR: Source: OpenGL	Type: Performance	ID: 2	Severity: Medium	Message: Fragment shader recompiled due to state change.
+   At: drivers/gles3/rasterizer_gles3.cpp:122:_gl_debug_print() - GL ERROR: Source: OpenGL	Type: Performance	ID: 2	Severity: Medium	Message: Fragment shader recompiled due to state change.
+**ERROR**: GL ERROR: Source: OpenGL	Type: Performance	ID: 2	Severity: Medium	Message: Fragment shader recompiled due to state change.
+   At: drivers/gles3/rasterizer_gles3.cpp:122:_gl_debug_print() - GL ERROR: Source: OpenGL	Type: Performance	ID: 2	Severity: Medium	Message: Fragment shader recompiled due to state change.
+**ERROR**: GL ERROR: Source: OpenGL	Type: Performance	ID: 2	Severity: Medium	Message: Fragment shader recompiled due to state change.
+   At: drivers/gles3/rasterizer_gles3.cpp:122:_gl_debug_print() - GL ERROR: Source: OpenGL	Type: Performance	ID: 2	Severity: Medium	Message: Fragment shader recompiled due to state change.
+from file: res://export_presets.cfg
+from file: res://icon.png.import
+from file: res://project.godot
+cached: res://export_presets.cfg
+cached: res://icon.png.import
+cached: res://project.godot
+cached: res://export_presets.cfg
+cached: res://icon.png.import
+cached: res://project.godot
+**ERROR**: Condition ' rename_error ' is true.
+   At: drivers/windows/file_access_windows.cpp:139:close() - Condition ' rename_error ' is true.
+cached: res://export_presets.cfg
+cached: res://icon.png.import
+cached: res://project.godot
+cached: res://export_presets.cfg
+cached: res://icon.png.import
+cached: res://project.godot
+cached: res://export_presets.cfg
+cached: res://icon.png.import
+cached: res://project.godot
+cached: res://export_presets.cfg
+cached: res://icon.png.import
+cached: res://project.godot
+cached: res://export_presets.cfg
+cached: res://icon.png.import
+cached: res://project.godot
+cached: res://export_presets.cfg
+cached: res://icon.png.import
+cached: res://project.godot
+cached: res://export_presets.cfg
+cached: res://icon.png.import
+cached: res://project.godot
+cached: res://export_presets.cfg
+cached: res://icon.png.import
+cached: res://project.godot
+cached: res://export_presets.cfg
+cached: res://icon.png.import
+cached: res://project.godot
+cached: res://export_presets.cfg
+cached: res://icon.png.import
+cached: res://project.godot
+cached: res://export_presets.cfg
+cached: res://icon.png.import
+cached: res://project.godot
+cached: res://export_presets.cfg
+cached: res://icon.png.import
+cached: res://project.godot
+cached: res://export_presets.cfg
+cached: res://icon.png.import
+cached: res://project.godot
+cached: res://export_presets.cfg
+cached: res://icon.png.import
+cached: res://project.godot
+cached: res://export_presets.cfg
+cached: res://icon.png.import
+cached: res://project.godot
+cached: res://export_presets.cfg
+cached: res://icon.png.import
+cached: res://project.godot
+cached: res://export_presets.cfg
+cached: res://icon.png.import
+cached: res://project.godot
+cached: res://export_presets.cfg
+cached: res://icon.png.import
+cached: res://project.godot
+cached: res://export_presets.cfg
+cached: res://icon.png.import
+cached: res://project.godot
+cached: res://export_presets.cfg
+cached: res://icon.png.import
+cached: res://project.godot
+cached: res://export_presets.cfg
+cached: res://icon.png.import
+cached: res://project.godot
+**ERROR**: Condition ' !id_map.has(p_rid.get_data()) ' is true. returned: __null
+   At: core/rid.h:164:getornull() - Condition ' !id_map.has(p_rid.get_data()) ' is true. returned: __null
+**ERROR**: Condition ' !canvas_item ' is true.
+   At: servers/visual/visual_server_canvas.cpp:328:canvas_item_set_visible() - Condition ' !canvas_item ' is true.
