@@ -19,7 +19,7 @@ extents = Vector2( 0.850872, 11.11 )
 min_value = 0.0
 max_value = 1.0
 bake_resolution = 100
-_data = [ Vector2( 0.105388, 1 ), 0.0, 107.112, 0, 0, Vector2( 0.244663, 1 ), -3.27574, 0.0, 0, 0, Vector2( 0.79321, 0.908203 ), 0.0, 0.0, 0, 0, Vector2( 0.933706, 0.865234 ), 0.0, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 0.854492 ), 0.0, 2.49657, 0, 0, Vector2( 0.244663, 1 ), 0.111536, 0.111536, 0, 0, Vector2( 0.79321, 0.908203 ), 0.0, 0.0, 0, 0, Vector2( 0.933706, 0.865234 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="CurveTexture" id=5]
 
@@ -36,7 +36,7 @@ flag_rotate_y = false
 flag_disable_z = true
 spread = 180.0
 flatness = 0.0
-gravity = Vector3( 0, 98, 0 )
+gravity = Vector3( 0, 0, 0 )
 initial_velocity = 1.0
 initial_velocity_random = 0.0
 angular_velocity = 0.0
@@ -64,7 +64,7 @@ anim_speed_random = 0.0
 anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
-_sections_unfolded = [ "Color", "Hue Variation" ]
+_sections_unfolded = [ "Color", "Gravity", "Hue Variation" ]
 
 [node name="Engine" type="Sprite"]
 
@@ -108,9 +108,9 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Particles2D" type="Particles2D" parent="."]
 
-position = Vector2( 0.181221, 14.8654 )
+position = Vector2( 0, 25 )
 z = -1
-emitting = false
+emitting = true
 amount = 600
 lifetime = 1.0
 one_shot = false
