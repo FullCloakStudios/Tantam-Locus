@@ -12,7 +12,7 @@ func _ready():
 	move = Vector2(rand_range(-1,1),rand_range(-1,1))
 	pass
 
-func _fixed_process(delta):
+func _physics_process(delta):
 	
 	if(player.position.distance_to(position) > 100):
 		move = position - move

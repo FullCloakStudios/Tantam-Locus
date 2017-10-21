@@ -68,6 +68,7 @@ func _ready():
 
 
 func _on_Continue_button_up():
+	$\"/root/Main-Menu/SaveManager\".savefile = $\"/root/Main-Menu/Menu\".saves[$\"/root/Main-Menu/Menu\".saves.size() - 1]
 	$\"/root/Main-Menu/SaveManager\".loadGame()
 "
 

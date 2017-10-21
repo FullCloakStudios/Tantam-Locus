@@ -4,7 +4,7 @@ export(float) var health
 var doSplode = true
 export(String) var marker
 
-func _fixed_process(delta):
+func _physics_process(delta):
 	if(health < 1):
 		if(doSplode):
 			doSplode = false

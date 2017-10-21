@@ -47,7 +47,7 @@ func _ready():
 		node.position = position + Vector2(0,os)
 
 
-func _fixed_process(delta):
+func _physics_process(delta):
 	move(delta)
 	fire()
 	damage()
@@ -134,7 +134,10 @@ func save():
 		posy = position.y,
 		scale = scale.x,
 		rotate = rotation,
-		Hull = Hull
+		Hull = Hull,
+		Shield = Shield,
+		hullParts = hullParts,
+		cargo = cargo
 	}
 	return saveData
 

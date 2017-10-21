@@ -37,7 +37,7 @@ func generate(amount, pos, radi, safe):
 		randomize()
 	
 
-func _process(delta):
+func _physics_process(delta):
 	if(disCheck.distance_to(captain.position) > 200):
 		hide()
 		show()
