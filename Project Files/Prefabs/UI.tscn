@@ -62,7 +62,7 @@ script/source = "extends Button
 
 var type6 = false
 var cap
-onready var ship = $\"/root/World/playerShip\"
+var ship
 
 func _on_Switch_button_up():
 	switchControl()
@@ -70,6 +70,7 @@ func _on_Switch_button_up():
 		hide()
 
 func switchControl():
+	ship = $\"/root/World/playerShip\"
 	$\"../\".hide()
 	ship.switchToPerson(!type6)
 	type6 = !type6

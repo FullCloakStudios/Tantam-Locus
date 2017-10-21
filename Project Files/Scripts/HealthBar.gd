@@ -4,8 +4,6 @@ var script
 
 export(int, "hull", "armour", "shield") var healthType
 
-
-
 func _process(delta):
 	if($"/root/World/".has_node("playerShip")):
 		script = $"/root/World/playerShip"
