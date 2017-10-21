@@ -45,6 +45,7 @@ func _process(delta):
 			var s = load("res://Levels/PlanetSurface.tscn")
 			currentScene = s.instance()
 			$"/root/World".add_child(currentScene)
+			$"/root/World/PlanetSurface".planetModulate = modulate
 			var ship = $"/root/World/playerShip"
 			ship.scale = Vector2(1,1)
 			ship.shouldMove = false

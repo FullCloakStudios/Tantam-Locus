@@ -1,6 +1,6 @@
 extends Node2D
 
-var planetModulate 
+var planetModulate
 var disCheck
 var firstPro
 
@@ -10,16 +10,15 @@ var possTerrain = [preload("res://Prefabs/TerrainTemplate.tscn")]
 
 func _ready():
 	randomize()
-	planetModulate = Color(rand_range(0,1),rand_range(0,1),rand_range(0,1))
-	generate(rand_range(20,35),captain.position,100,false)
 	hide()
 	show()
 	firstPro = true
 
 
 func _draw():
-	draw_circle(captain.position, 500, planetModulate)
+	draw_circle(captain.position, 1000, planetModulate)
 	disCheck = captain.position
+	generate(rand_range(20,35),captain.position,100,false)
 
 func generate(amount, pos, radi, safe):
 	var index = 0
