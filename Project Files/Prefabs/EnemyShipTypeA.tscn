@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Prefabs/BaseEnemyShip.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/EnemyShips/EnemyConcept0.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/EnemyShips/EnemyConcept1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/EnemyShips/EnemyConcept2.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/EnemyShips/EnemyConcept3.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/EnemyShips/EnemyConcept4.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 7.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 63.6999, 22.753 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 21.5855, 64.0216 )
+
+[node name="EnemyShipTypeA" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 3
+collision_mask = 3
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "collision" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+
+frames = SubResource( 1 )
+animation = "default"
+frame = 3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+position = Vector2( 0, 6 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+
+shape = SubResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+

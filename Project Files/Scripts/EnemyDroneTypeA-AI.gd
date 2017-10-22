@@ -14,16 +14,16 @@ func _ready():
 
 func _physics_process(delta):
 	
-	if(player.position.distance_to(position) > 100):
+	if(player.position.distance_to(position) > 500):
 		move = position - move
 		rotation = ($".".position.angle_to_point( move ) + deg2rad(90) )
 		move *= delta * speed
-		move_and_slide(move)
+		move_and_collide(move)
 	else:
 		move = position - player.position
 		rotation = ($".".position.angle_to_point( move ) + deg2rad(90) )
 		move *= delta * speed
-		move_and_slide(move)
+		move_and_collide(move)
 	
 	if(health <= 0):
 		if(doSplode):
