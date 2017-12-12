@@ -24,7 +24,7 @@ var offset = Vector2()
 var cargo = PoolStringArray()
 var cargoSpace
 var doPickup = true
-var hullParts = ["res://Prefabs/ShipParts/HelmBasic.tscn", "res://Prefabs/ShipParts/CargoBasic.tscn", "res://Prefabs/ShipParts/EngineBasic.tscn"]
+var hullParts = ["res://Prefabs/ShipParts/HelmBomb.tscn", "res://Prefabs/ShipParts/CargoBasic.tscn", "res://Prefabs/ShipParts/EngineBasic.tscn"]
 
 var isCaptainFocus = false
 

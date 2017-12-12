@@ -7,7 +7,7 @@
 
 custom_solver_bias = 0.0
 radius = 6.40819
-height = 25.9369
+height = 18.2895
 
 [node name="playerShip" type="KinematicBody2D" groups=[
 "Save",
@@ -25,9 +25,10 @@ gunfire = "res://Prefabs/Bullet.tscn"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 
-position = Vector2( 0, -2 )
+position = Vector2( 0, 44.0292 )
 scale = Vector2( 5, 5 )
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Camera" type="Camera2D" parent="."]
 
