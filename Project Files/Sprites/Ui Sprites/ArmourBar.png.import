@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path="res://.import/ArmourBar.png-b2722227e3139de735bab19899850da6.stex"
 
+[deps]
+
+source_md5="954613350582df07be7abe304563617f"
+
 [params]
 
 compress/mode=0

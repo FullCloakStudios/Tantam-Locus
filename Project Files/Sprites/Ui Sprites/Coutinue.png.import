@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path="res://.import/Coutinue.png-bea347800a85e43f80031a3e42369eb5.stex"
 
+[deps]
+
+source_md5="26384647f27a29cd90163afc15f1d277"
+
 [params]
 
 compress/mode=0

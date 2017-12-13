@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path="res://.import/CargoBasic-Inside.png-f45743f98b42b1df6ddca58fb640cc28.stex"
 
+[deps]
+
+source_md5="7bce30740799fdbb778d4ce3baa7669d"
+
 [params]
 
 compress/mode=0

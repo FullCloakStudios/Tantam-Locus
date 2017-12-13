@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path="res://.import/Marker.png-fcfd199145a76d9a4cb9ab401ad34fd9.stex"
 
+[deps]
+
+source_md5="70c84db0c36ef5341eb2d09d40705fc4"
+
 [params]
 
 compress/mode=0

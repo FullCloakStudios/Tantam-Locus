@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path="res://.import/Astroid.png-d7422846b66a5ce17af71bd0e27d0221.stex"
 
+[deps]
+
+source_md5="a3c3e757845df768a76db3089e14eeca"
+
 [params]
 
 compress/mode=0

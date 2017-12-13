@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path="res://.import/Captain.png-7297d371e257b124f5169857294b0579.stex"
 
+[deps]
+
+source_md5="1f021eaa9aa165fe128a4afbe4f05dd1"
+
 [params]
 
 compress/mode=0

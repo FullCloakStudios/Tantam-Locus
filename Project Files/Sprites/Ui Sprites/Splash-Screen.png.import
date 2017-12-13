@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path="res://.import/Splash-Screen.png-07d0a5b62e36ae8e6c3b6182757c12a7.stex"
 
+[deps]
+
+source_md5="b14e3b7299ef37dd82e82530eb02104b"
+
 [params]
 
 compress/mode=0

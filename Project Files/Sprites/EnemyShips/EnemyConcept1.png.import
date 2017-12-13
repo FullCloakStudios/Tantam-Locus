@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path="res://.import/EnemyConcept1.png-d2ce066f49abffa1bcf3536dbcb22fa5.stex"
 
+[deps]
+
+source_md5="e2f14c769953e7044a50194ceedf2269"
+
 [params]
 
 compress/mode=0

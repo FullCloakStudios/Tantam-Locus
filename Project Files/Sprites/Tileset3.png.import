@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path="res://.import/Tileset3.png-edc38a18cdcb8f9b7abcca96a2a9c6e8.stex"
 
+[deps]
+
+source_md5="815fd60e1884dbc1c9b5c5a0a6875697"
+
 [params]
 
 compress/mode=0

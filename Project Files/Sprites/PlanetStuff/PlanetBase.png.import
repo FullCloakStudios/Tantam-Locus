@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path="res://.import/PlanetBase.png-3d79ee82304134014e533224d35623da.stex"
 
+[deps]
+
+source_md5="2e81f521d640e11a5a92a5b205ce5377"
+
 [params]
 
 compress/mode=0

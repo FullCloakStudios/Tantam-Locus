@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path="res://.import/ShieldBar.png-66b61c15dd6416769b7e09dca7b9313e.stex"
 
+[deps]
+
+source_md5="e24843134f970c04de13b0a522ea6467"
+
 [params]
 
 compress/mode=0

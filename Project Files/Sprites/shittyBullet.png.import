@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path="res://.import/shittyBullet.png-ec92cf3c2ba9a657b2c2d6bf7ebc872f.stex"
 
+[deps]
+
+source_md5="2fd531d06469ca55a7c37cb38f6c648f"
+
 [params]
 
 compress/mode=0

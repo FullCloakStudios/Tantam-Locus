@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path="res://.import/PikeBombCockpitExploded.png-01b427327370d51f0cad8e2f02ec38d5.stex"
 
+[deps]
+
+source_md5="ca3c4f4980864cf1138322711dc3a0d7"
+
 [params]
 
 compress/mode=0

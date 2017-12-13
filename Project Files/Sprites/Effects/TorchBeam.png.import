@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path="res://.import/TorchBeam.png-a667844b9d2ff726fa6f4e9b4c09a66a.stex"
 
+[deps]
+
+source_md5="28a4d2dffe3047dc32fbfda854661af9"
+
 [params]
 
 compress/mode=0

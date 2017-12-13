@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path="res://.import/ParallaxLayer001.png-e2b229c02bd95bdd4a686d6dc4d24680.stex"
 
+[deps]
+
+source_md5="ae6e504acc4cf53345eb3a52efa56438"
+
 [params]
 
 compress/mode=0

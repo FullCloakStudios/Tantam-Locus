@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path="res://.import/HelmBasic-Inside.png-0308ff817a8906eb74d175895ab5936e.stex"
 
+[deps]
+
+source_md5="2853e97d9eb705b8b064a1e257b37278"
+
 [params]
 
 compress/mode=0

@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path="res://.import/HullBar.png-a1ebfcdfce7a17037e1dabce71079e5d.stex"
 
+[deps]
+
+source_md5="229b26ba3c81b5dd5edf31617e95c7c0"
+
 [params]
 
 compress/mode=0

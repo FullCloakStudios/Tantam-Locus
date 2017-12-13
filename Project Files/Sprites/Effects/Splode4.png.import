@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path="res://.import/Splode4.png-bc9a71b848f10ab7e6dd4c6825bd2996.stex"
 
+[deps]
+
+source_md5="7ad4a4e34aa621366604febd202af3c7"
+
 [params]
 
 compress/mode=0

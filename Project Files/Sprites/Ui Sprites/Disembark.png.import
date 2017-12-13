@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path="res://.import/Disembark.png-7e798e6266d08cfacf9e835daf291ceb.stex"
 
+[deps]
+
+source_md5="1d772928e018b1d29975c2f39527d42a"
+
 [params]
 
 compress/mode=0

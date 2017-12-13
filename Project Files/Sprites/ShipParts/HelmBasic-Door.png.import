@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path="res://.import/HelmBasic-Door.png-bad05bcda62ef9507053b8622ac1d23e.stex"
 
+[deps]
+
+source_md5="db533f1426e5015a6005e247b6675d11"
+
 [params]
 
 compress/mode=0
