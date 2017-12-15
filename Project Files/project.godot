@@ -20,6 +20,11 @@ config/icon="res://icon.png"
 
 singletons=[  ]
 
+[physics]
+
+common/fixed_fps=360
+
 [rendering]
 
+environment/default_clear_color=Color( 0.351563, 0.351563, 0.351563, 1 )
 environment/default_environment="res://default_env.tres"

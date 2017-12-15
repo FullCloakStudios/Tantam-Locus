@@ -370,12 +370,12 @@ custom_colors/selection_color = Color( 1, 1, 1, 1 )
 custom_colors/cursor_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_selected = Color( 0.0546875, 0, 1, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-expand_to_len = false
 focus_mode = 2
 placeholder_text = "Ship Name"
 placeholder_alpha = 0.6
 caret_blink = false
 caret_blink_speed = 0.65
+context_menu_enabled = true
 script = SubResource( 7 )
 
 [node name="MenuButton" type="MenuButton" parent="Menu/NGMenu"]

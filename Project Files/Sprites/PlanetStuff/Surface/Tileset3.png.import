@@ -2,11 +2,11 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Tileset2.png-16b18017aca192349b92927992d5035a.stex"
+path="res://.import/Tileset3.png-edc38a18cdcb8f9b7abcca96a2a9c6e8.stex"
 
 [deps]
 
-source_md5="de18fb40111e3f475d8eb1903e5c6e7b"
+source_md5="f8274342ef4b05652d794359c38c9f05"
 
 [params]
 
@@ -15,7 +15,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
