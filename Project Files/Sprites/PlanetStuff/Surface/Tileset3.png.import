@@ -2,7 +2,7 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Tileset3.png-edc38a18cdcb8f9b7abcca96a2a9c6e8.stex"
+path="res://.import/Tileset3.png-f1a7edb2db521d257ea51504b5b4743e.stex"
 
 [deps]
 
@@ -16,7 +16,7 @@ compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
-flags/mipmaps=false
+flags/mipmaps=true
 flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true

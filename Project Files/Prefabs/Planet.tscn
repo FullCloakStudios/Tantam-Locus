@@ -1,8 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Sprites/PlanetStuff/PlanetBase.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/PlanetSprite.gd" type="Script" id=2]
-[ext_resource path="res://Sprites/PlanetStuff/Cont1.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/PlanetSprite.gd" type="Script" id=1]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -11,13 +9,11 @@ radius = 127.604
 
 [node name="PlanetBase" type="Sprite"]
 
-texture = ExtResource( 1 )
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="PlanetCon" type="Sprite" parent="."]
 
-texture = ExtResource( 3 )
 _sections_unfolded = [ "Visibility", "Z" ]
 
 [node name="Area2D" type="Area2D" parent="."]

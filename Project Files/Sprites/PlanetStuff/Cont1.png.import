@@ -6,7 +6,7 @@ path="res://.import/Cont1.png-b8cae8d69816bdaf347e7a7c24fb77d0.stex"
 
 [deps]
 
-source_md5="d77261151b87fbd3700e11252fab9d3e"
+source_md5="ffa8c54728915a870097b98a1faa8838"
 
 [params]
 
@@ -16,7 +16,7 @@ compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
-flags/mipmaps=false
+flags/mipmaps=true
 flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true

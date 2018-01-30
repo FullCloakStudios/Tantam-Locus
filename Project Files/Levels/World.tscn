@@ -1,94 +1,38 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/World-Mechanics.gd" type="Script" id=1]
-[ext_resource path="res://Prefabs/EnemyShipTypeA.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Prefabs/Astroid.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Prefabs/UI.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Prefabs/Background.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Prefabs/Planet.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scripts/Save.gd" type="Script" id=7]
-[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Prefabs/Items/TestItem.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scripts/Save.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/ChunkManager.gd" type="Script" id=3]
+[ext_resource path="res://Prefabs/Background.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/UI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/Planet.tscn" type="PackedScene" id=7]
 
 [node name="World" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Ships" type="Node2D" parent="."]
-
-[node name="EnemyShipTypeA" parent="Ships" instance=ExtResource( 2 )]
-
-position = Vector2( 151.525, -208.182 )
-
-[node name="EnemyShipTypeA2" parent="Ships" instance=ExtResource( 2 )]
-
-position = Vector2( 295.024, -74.7525 )
-
-[node name="Space-Terrain" type="Node2D" parent="."]
-
-editor/display_folded = true
-
-[node name="AstroidTypeA" parent="Space-Terrain" instance=ExtResource( 3 )]
-
-position = Vector2( -319.358, 190.479 )
-
-[node name="AstroidTypeA2" parent="Space-Terrain" instance=ExtResource( 3 )]
-
-position = Vector2( -180.269, 209.025 )
-
-[node name="AstroidTypeA3" parent="Space-Terrain" instance=ExtResource( 3 )]
-
-position = Vector2( -402.812, 122.48 )
-
-[node name="AstroidTypeA4" parent="Space-Terrain" instance=ExtResource( 3 )]
-
-position = Vector2( -439.902, -13.5184 )
-
-[node name="AstroidTypeA5" parent="Space-Terrain" instance=ExtResource( 3 )]
-
-position = Vector2( -390.448, -174.244 )
-
-[node name="UI" parent="." instance=ExtResource( 4 )]
-
-[node name="Background" parent="." instance=ExtResource( 5 )]
-
-[node name="Sprite" parent="." instance=ExtResource( 6 )]
-
-position = Vector2( -229.718, -36.141 )
-z = -1
-_sections_unfolded = [ "Visibility", "Z" ]
-
 [node name="SaveManager" type="Node" parent="."]
 
-script = ExtResource( 7 )
+script = ExtResource( 2 )
 
-[node name="playerShip" parent="." instance=ExtResource( 8 )]
+[node name="ChunkManager" type="Node2D" parent="."]
+
+script = ExtResource( 3 )
+
+[node name="Ships" type="Node2D" parent="."]
+
+[node name="Background" parent="." instance=ExtResource( 4 )]
+
+[node name="UI" parent="." instance=ExtResource( 5 )]
+
+[node name="playerShip" parent="." instance=ExtResource( 6 )]
 
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Items" type="Node2D" parent="."]
+[node name="PlanetBase" parent="." instance=ExtResource( 7 )]
 
-editor/display_folded = true
-
-[node name="TestItem" parent="Items" instance=ExtResource( 9 )]
-
-position = Vector2( -171.454, -338.669 )
-
-[node name="TestItem2" parent="Items" instance=ExtResource( 9 )]
-
-position = Vector2( -30.8071, -264.644 )
-
-[node name="TestItem3" parent="Items" instance=ExtResource( 9 )]
-
-position = Vector2( -138.143, -249.839 )
-
-[node name="TestItem4" parent="Items" instance=ExtResource( 9 )]
-
-position = Vector2( -217.72, -270.196 )
-
-[node name="TestItem5" parent="Items" instance=ExtResource( 9 )]
-
-position = Vector2( -254.732, -257.242 )
+position = Vector2( -311.881, -14.2141 )
 
 

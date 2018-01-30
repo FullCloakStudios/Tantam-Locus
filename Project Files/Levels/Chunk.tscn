@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Chunk.gd" type="Script" id=1]
+
+[node name="Chunk" type="Node2D"]
+
+position = Vector2( 0, 3 )
+script = ExtResource( 1 )
+
+

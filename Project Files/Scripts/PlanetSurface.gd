@@ -6,7 +6,7 @@ var firstPro
 
 onready var captain = $"/root/World/playerShip/captain"
 
-var possTerrain = [preload("res://Prefabs/TerrainTemplate.tscn")]
+var possTerrain = [load("res://Prefabs/TerrainTemplate.tscn")]
 
 func _ready():
 	randomize()

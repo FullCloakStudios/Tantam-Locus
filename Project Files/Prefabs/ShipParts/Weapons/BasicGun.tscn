@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/ShipParts/TestWeapon.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/BasicGun.gd" type="Script" id=2]
+
+[node name="BasicGun" type="Sprite"]
+
+z = -1
+texture = ExtResource( 1 )
+region_filter_clip = true
+script = ExtResource( 2 )
+bullet = "res://Prefabs/Bullet.tscn"
+firingarc = 90.0
+
+

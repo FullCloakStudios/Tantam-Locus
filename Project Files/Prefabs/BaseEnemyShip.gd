@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-onready var player = $"/root/World/playerShip" 
+onready var player = $"/root/World".playership 
 var health
 var route = Vector2(rand_range(-1,1),rand_range(-1,1))
 var move

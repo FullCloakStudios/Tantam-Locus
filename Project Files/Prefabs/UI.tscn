@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Sprites/Ui Sprites/BackgroundBar.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Ui Sprites/HullBar.png" type="Texture" id=2]
@@ -8,8 +8,9 @@
 [ext_resource path="res://Sprites/Ui Sprites/Menu.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Ui Sprites/Disembark.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/LSButt.gd" type="Script" id=8]
-[ext_resource path="res://Scripts/CargoMenu.gd" type="Script" id=9]
-[ext_resource path="res://Scripts/InventoryPanel.gd" type="Script" id=10]
+[ext_resource path="res://UI/Default_Theme.tres" type="Theme" id=9]
+[ext_resource path="res://Scripts/CargoMenu.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/InventoryPanel.gd" type="Script" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -243,6 +244,7 @@ rect_clip_content = false
 mouse_filter = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+theme = ExtResource( 9 )
 popup_exclusive = false
 _sections_unfolded = [ "Rect" ]
 
@@ -263,7 +265,7 @@ size_flags_vertical = 1
 items = [  ]
 select_mode = 0
 icon_mode = 1
-script = ExtResource( 9 )
+script = ExtResource( 10 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="DropArea" type="Area2D" parent="Menu/Cargo"]
@@ -275,7 +277,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 10 )
+script = ExtResource( 11 )
 isCargo = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Menu/Cargo/DropArea"]
@@ -313,7 +315,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 10 )
+script = ExtResource( 11 )
 isCargo = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Menu/Drop/DropArea"]

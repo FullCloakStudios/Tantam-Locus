@@ -8,7 +8,7 @@ var speed = 50
 var player
 
 func _ready():
-	player = get_node("/root/World/playerShip")
+	player = $"/root/World".playership
 	move = Vector2(rand_range(-1,1),rand_range(-1,1))
 	pass
 

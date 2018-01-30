@@ -5,8 +5,8 @@ var script
 export(int, "hull", "armour", "shield") var healthType
 
 func _process(delta):
-	if($"/root/World/".has_node("playerShip")):
-		script = $"/root/World/playerShip"
+	if($"/root/World".playership != null):
+		script = $"/root/World".playership
 		if(healthType == 0):
 			value = script.Hull
 			max_value = script.Hulld

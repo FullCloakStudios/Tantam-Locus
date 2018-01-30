@@ -5,9 +5,12 @@ var speed
 var shipPos = Vector2()
 var shouldMove = true
 
-export(String) var gunfire
-var firerate = 1
-var stockFirerate = 25
+var weapons = PoolStringArray()
+var firerate = {}
+var stockFirerate = {}
+var gunnodes = {}
+
+#var gunfire = {} <- Cursed variable do not use
 
 var Hull = 100
 var Shield = 100
@@ -24,7 +27,11 @@ var offset = Vector2()
 var cargo = PoolStringArray()
 var cargoSpace
 var doPickup = true
-var hullParts = ["res://Prefabs/ShipParts/HelmBomb.tscn", "res://Prefabs/ShipParts/CargoBasic.tscn", "res://Prefabs/ShipParts/EngineBasic.tscn"]
+var hullParts = ["res://Prefabs/ShipParts/HelmBasic.tscn", "res://Prefabs/ShipParts/CargoBasic.tscn", "res://Prefabs/ShipParts/EngineBasic.tscn"]
+var hullnodes = []
+const HELM = 0
+const CARGO = 1
+const ENGINE = 2
 
 var isCaptainFocus = false
 
@@ -36,15 +43,17 @@ func _ready():
 	for p in hullParts:
 		var scene = load(p)
 		var node = scene.instance()
+		hullnodes.append(node)
 		add_child(node)
-		if(i == 0):
+		if(i == HELM):
 			os = -64
-		elif(i == 1):
+		elif(i == CARGO):
 			os = 0
-		elif(i == 2):
+		elif(i == ENGINE):
 			os = 64
 		i += 1
 		node.position = position + Vector2(0,os)
+	addGun("BasicGun", 200, "res://Prefabs/ShipParts/Weapons/BasicGun.tscn", HELM)
 
 
 func _physics_process(delta):
@@ -62,23 +71,29 @@ func _process(delta):
 
 
 func fire():
-	if(firerate > 1):
-		firerate = firerate - 1
-	
-	if(firerate < 2 && shouldFire()):
-		firerate = stockFirerate
-		var scene = load(gunfire)
-		var node = scene.instance()
-		node.global_position = $"./Gun".global_position
-		node.global_rotation = $"./Gun".global_rotation
-		$"/root/World/".add_child(node)
+	for w in weapons:
+		if(firerate[w] > 1):
+			firerate[w] = firerate[w] - 1
+		
+		if(firerate[w] == 1):
+			firerate[w] = stockFirerate[w]
+			var gun = get_node(gunnodes[w]).get_children()
+			gun[0].fire()
+			
+
+func addGun(gunname, fireratel, gunlocation, part):
+	weapons.append(gunname)
+	stockFirerate[gunname] = fireratel
+	firerate[gunname] = fireratel
+	var node = load(gunlocation)
+	gunnodes[gunname] = hullnodes[part].addtohardpoint(node.instance())
 
 
 func move(delta):
 	if(Input.is_mouse_button_pressed(BUTTON_LEFT) && shouldMove && !isCaptainFocus):
 		offset = ship.position - get_global_mouse_position()
 	else:
-		offset = offset / 1.09
+		offset = offset / 2
 		if(shouldMove == false):
 			offset = Vector2(0,0)
 	var motion = offset * delta * speed
@@ -110,7 +125,7 @@ func damage():
 				var explosion2 = preload("res://Prefabs/ExplosionTypeA.tscn").instance()
 				explosion2.translate(Vector2(rand_range(-30,30) - 5,rand_range(-20,30)))
 				add_child(explosion2)
-			if(rand_range(0,5) > 1):
+			if(rand_range(0,2) > 1):
 				var explosion3 = preload("res://Prefabs/ExplosionTypeA.tscn").instance()
 				explosion3.translate(Vector2(rand_range(-40,40) + 3,rand_range(-50,40) - 2))
 				add_child(explosion3)

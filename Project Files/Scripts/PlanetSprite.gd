@@ -6,11 +6,11 @@ const cont = [preload("res://Sprites/PlanetStuff/Cont1.png")]
 
 #const atmo Later mabye
 
-onready var x = $"/root/World/playerShip"
+onready var x = $"/root/World".playership
 var i = Vector2(1,1)
 var doLand = false
 var currentScene
-var rezize = false
+var resize = false
 
 func _ready():
 	randomize()
@@ -23,41 +23,16 @@ func _ready():
 
 
 func _process(delta):
-	
-	if(rezize && x.scale.x < 0.9):
-		x.scale = i * 1.1
-		i = x.scale
-	if(!x.scale.x < 0.9):
-		rezize = false
-	
-	if(doLand == true):
-		
-		if(!x.scale.x < 0.1):
-			x.scale = i / 1.1
-			i = x.scale
-		elif(!x.scale.x > 0.8):
-			x.scale = i * 1.1
-			i = x.scale
-		if(x.scale.x < 0.1):
-			for o in currentScene:
-				if(o.get_name() != "playerShip"):
-					o.queue_free()
-			var s = load("res://Levels/PlanetSurface.tscn")
-			currentScene = s.instance()
-			$"/root/World".add_child(currentScene)
-			$"/root/World/PlanetSurface".planetModulate = modulate
-			var ship = $"/root/World/playerShip"
-			ship.scale = Vector2(1,1)
-			ship.shouldMove = false
-			ship.z = 1
+	pass
 
 
 
 func _on_Area2D_body_entered( body ):
-		if(body == $"/root/World/playerShip"):
+		if(body == $"/root/World".playership):
 			doLand = true
 
+
 func _on_Area2D_body_exited( body ):
-		if(body == $"/root/World/playerShip"):
+		if(body == $"/root/World".playership):
 			doLand = false
-			rezize = true
+			resize = true

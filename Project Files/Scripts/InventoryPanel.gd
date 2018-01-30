@@ -9,7 +9,7 @@ func invAdd(path):
 		ignoreOnce = false
 	else:
 		if(isCargo):
-			$"/root/World/playerShip".addCargo($"../../Cargo".drag.get_filename())
+			$"/root/World".playership.addCargo($"../../Cargo".drag.get_filename())
 		var c = $"../"
 		var x = load(path).instance()
 		c.add_item(x.get_name(),x.texture, true)

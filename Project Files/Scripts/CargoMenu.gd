@@ -4,7 +4,7 @@ var ship
 var drag
 
 func _on_Menu_about_to_show():
-	ship =  $"/root/World/playerShip"
+	ship =  $"/root/World".playership
 	clear()
 	var index = 0
 	for i in ship.cargo:

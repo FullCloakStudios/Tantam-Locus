@@ -6,14 +6,13 @@
 [sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 6.40819
-height = 18.2895
+radius = 6.48121
+height = 25.9877
 
 [node name="playerShip" type="KinematicBody2D" groups=[
 "Save",
 ]]
 
-scale = Vector2( 0.89, 0.89 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -21,11 +20,9 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
 ship = NodePath(".")
-gunfire = "res://Prefabs/Bullet.tscn"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 
-position = Vector2( 0, 44.0292 )
 scale = Vector2( 5, 5 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -58,7 +55,7 @@ _sections_unfolded = [ "Smoothing", "Z" ]
 
 [node name="Gun" type="Node2D" parent="."]
 
-position = Vector2( 0, -105 )
+position = Vector2( 0, -115 )
 scale = Vector2( 0.1, 0.1 )
 _sections_unfolded = [ "Transform" ]
 

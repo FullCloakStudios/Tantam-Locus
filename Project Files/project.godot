@@ -16,6 +16,12 @@ boot_splash/image="res://Sprites/Ui Sprites/Splash-Screen.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
+[display]
+
+window/handheld/emulate_touchscreen=true
+window/stretch/mode="2d"
+window/stretch/shrink="1"
+
 [gdnative]
 
 singletons=[  ]
@@ -26,5 +32,10 @@ common/fixed_fps=360
 
 [rendering]
 
+quality/filters/use_nearest_mipmap_filter=true
 environment/default_clear_color=Color( 0.351563, 0.351563, 0.351563, 1 )
 environment/default_environment="res://default_env.tres"
+
+[res]
+
+AnisotropicFilterLevel=false
