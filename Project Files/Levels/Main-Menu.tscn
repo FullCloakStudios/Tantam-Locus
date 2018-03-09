@@ -29,6 +29,7 @@ func _ready():
 	else:
 		file.open(\"user://gameData.dat\", 1)
 		saves = parse_json(file.get_line())
+	print(Engine.has_singleton(\"AdMob\"))
 
 
 func addSave(name):
@@ -170,9 +171,9 @@ func _on_LGMenu_id_pressed( ID ):
 	$\"/root/Main-Menu/SaveManager\".loadGame()
 "
 
-[node name="Main-Menu" type="Node2D"]
+[node name="Main-Menu" type="Node2D" index="0"]
 
-[node name="Menu" type="Control" parent="."]
+[node name="Menu" type="Control" parent="." index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -183,12 +184,13 @@ margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 theme = ExtResource( 1 )
 script = SubResource( 1 )
 
-[node name="Label" type="Label" parent="Menu"]
+[node name="Label" type="Label" parent="Menu" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -201,6 +203,7 @@ margin_bottom = 210.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 2 )
@@ -212,7 +215,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="NewGame" type="Button" parent="Menu"]
+[node name="NewGame" type="Button" parent="Menu" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -224,7 +227,9 @@ margin_right = 648.0
 margin_bottom = 457.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 toggle_mode = false
@@ -237,7 +242,7 @@ align = 2
 script = SubResource( 3 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="Continue" type="Button" parent="Menu"]
+[node name="Continue" type="Button" parent="Menu" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -249,7 +254,9 @@ margin_right = 648.0
 margin_bottom = 345.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 toggle_mode = false
@@ -262,7 +269,7 @@ align = 2
 script = SubResource( 4 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="LoadGame" type="Button" parent="Menu"]
+[node name="LoadGame" type="Button" parent="Menu" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -274,7 +281,9 @@ margin_right = 648.0
 margin_bottom = 571.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 toggle_mode = false
@@ -283,10 +292,11 @@ shortcut = null
 group = null
 icon = ExtResource( 5 )
 flat = false
+align = 1
 script = SubResource( 5 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="Settings" type="Button" parent="Menu"]
+[node name="Settings" type="Button" parent="Menu" index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -300,7 +310,9 @@ grow_horizontal = 0
 grow_vertical = 0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 toggle_mode = false
@@ -309,9 +321,10 @@ shortcut = null
 group = null
 icon = ExtResource( 6 )
 flat = false
+align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="ExitGame" type="Button" parent="Menu"]
+[node name="ExitGame" type="Button" parent="Menu" index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -323,7 +336,9 @@ margin_right = 81.0
 margin_bottom = 599.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 toggle_mode = false
@@ -332,10 +347,11 @@ shortcut = null
 group = null
 icon = ExtResource( 7 )
 flat = false
+align = 1
 script = ExtResource( 8 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="NGMenu" type="PopupPanel" parent="Menu"]
+[node name="NGMenu" type="PopupPanel" parent="Menu" index="6"]
 
 visible = false
 anchor_left = 0.0
@@ -349,12 +365,13 @@ margin_bottom = 510.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 popup_exclusive = false
 _sections_unfolded = [ "Rect" ]
 
-[node name="Name" type="LineEdit" parent="Menu/NGMenu"]
+[node name="Name" type="LineEdit" parent="Menu/NGMenu" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -366,7 +383,9 @@ margin_right = 545.0
 margin_bottom = 130.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 1
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 6 )
@@ -375,14 +394,15 @@ custom_colors/cursor_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_selected = Color( 0.0546875, 0, 1, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 focus_mode = 2
+context_menu_enabled = true
 placeholder_text = "Ship Name"
 placeholder_alpha = 0.6
 caret_blink = false
 caret_blink_speed = 0.65
-context_menu_enabled = true
+caret_position = 0
 script = SubResource( 7 )
 
-[node name="MenuButton" type="MenuButton" parent="Menu/NGMenu"]
+[node name="MenuButton" type="MenuButton" parent="Menu/NGMenu" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -395,6 +415,7 @@ margin_bottom = 166.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 8 )
@@ -407,10 +428,11 @@ group = null
 text = "Something for later"
 icon = ExtResource( 9 )
 flat = true
+align = 1
 items = [  ]
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Button" type="Button" parent="Menu/NGMenu"]
+[node name="Button" type="Button" parent="Menu/NGMenu" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -422,7 +444,9 @@ margin_right = 230.0
 margin_bottom = 370.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 9 )
@@ -432,11 +456,12 @@ shortcut = null
 group = null
 text = "OK"
 flat = false
+align = 1
 script = SubResource( 10 )
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 load_scene = "res://Levels/World.tscn"
 
-[node name="Cancel" type="Button" parent="Menu/NGMenu"]
+[node name="Cancel" type="Button" parent="Menu/NGMenu" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -448,7 +473,9 @@ margin_right = 510.0
 margin_bottom = 370.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 9 )
@@ -458,10 +485,11 @@ shortcut = null
 group = null
 text = "Cancel"
 flat = false
+align = 1
 script = SubResource( 11 )
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="NGMenu2" type="PopupPanel" parent="Menu"]
+[node name="NGMenu2" type="PopupPanel" parent="Menu" index="7"]
 
 visible = false
 anchor_left = 0.0
@@ -475,12 +503,13 @@ margin_bottom = 510.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 popup_exclusive = false
 _sections_unfolded = [ "Rect" ]
 
-[node name="Name" type="LineEdit" parent="Menu/NGMenu2"]
+[node name="Name" type="LineEdit" parent="Menu/NGMenu2" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -492,7 +521,9 @@ margin_right = 545.0
 margin_bottom = 130.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 1
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 6 )
@@ -501,14 +532,15 @@ custom_colors/cursor_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_selected = Color( 0.0546875, 0, 1, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 focus_mode = 2
+context_menu_enabled = true
 placeholder_text = "Ship Name"
 placeholder_alpha = 0.6
 caret_blink = false
 caret_blink_speed = 0.65
-context_menu_enabled = true
+caret_position = 0
 script = SubResource( 7 )
 
-[node name="MenuButton" type="MenuButton" parent="Menu/NGMenu2"]
+[node name="MenuButton" type="MenuButton" parent="Menu/NGMenu2" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -521,6 +553,7 @@ margin_bottom = 166.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 8 )
@@ -533,10 +566,11 @@ group = null
 text = "Something for later"
 icon = ExtResource( 9 )
 flat = true
+align = 1
 items = [  ]
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Button" type="Button" parent="Menu/NGMenu2"]
+[node name="Button" type="Button" parent="Menu/NGMenu2" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -548,7 +582,9 @@ margin_right = 230.0
 margin_bottom = 370.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 9 )
@@ -558,11 +594,12 @@ shortcut = null
 group = null
 text = "OK"
 flat = false
+align = 1
 script = SubResource( 10 )
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 load_scene = "res://Levels/World.tscn"
 
-[node name="Cancel" type="Button" parent="Menu/NGMenu2"]
+[node name="Cancel" type="Button" parent="Menu/NGMenu2" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -574,7 +611,9 @@ margin_right = 510.0
 margin_bottom = 370.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 9 )
@@ -584,18 +623,19 @@ shortcut = null
 group = null
 text = "Cancel"
 flat = false
+align = 1
 script = SubResource( 11 )
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Backdrop001" type="Sprite" parent="Menu"]
+[node name="Backdrop001" type="Sprite" parent="Menu" index="8"]
 
 position = Vector2( 515.955, 359.931 )
 scale = Vector2( 1.29, 1.2 )
-z = -10
+z_index = -100
 texture = ExtResource( 10 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="LGMenu" type="PopupMenu" parent="Menu"]
+[node name="LGMenu" type="PopupMenu" parent="Menu" index="9"]
 
 visible = false
 anchor_left = 0.0
@@ -608,15 +648,18 @@ margin_right = 860.0
 margin_bottom = 530.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 popup_exclusive = false
 items = [  ]
+hide_on_state_item_selection = false
 script = SubResource( 12 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="SaveManager" type="Node" parent="."]
+[node name="SaveManager" type="Node" parent="." index="1"]
 
 script = ExtResource( 11 )
 

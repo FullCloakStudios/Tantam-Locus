@@ -8,9 +8,8 @@
 custom_solver_bias = 0.0
 radius = 28.2434
 
-[node name="AstroidTypeA" type="StaticBody2D"]
+[node name="AstroidTypeA" type="StaticBody2D" index="0"]
 
-z = 1
 input_pickable = true
 collision_layer = 1
 collision_mask = 1
@@ -23,12 +22,12 @@ _sections_unfolded = [ "Pickable", "Transform" ]
 health = 10.0
 marker = "res://Prefabs/Marker.tscn"
 
-[node name="Astroid" type="Sprite" parent="."]
+[node name="Astroid" type="Sprite" parent="." index="0"]
 
 position = Vector2( 0.0203155, -0.235039 )
 texture = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 shape = SubResource( 1 )
 

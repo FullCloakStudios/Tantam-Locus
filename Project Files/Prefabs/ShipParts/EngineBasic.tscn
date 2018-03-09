@@ -23,6 +23,7 @@ _data = [ Vector2( 0, 0.854492 ), 0.0, 2.49657, 0, 0, Vector2( 0.244663, 1 ), 0.
 
 [sub_resource type="CurveTexture" id=4]
 
+flags = 4
 width = 2048
 curve = SubResource( 3 )
 
@@ -67,18 +68,18 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Hue Variation" ]
 
-[node name="Engine" type="Sprite"]
+[node name="Engine" type="Sprite" index="0"]
 
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
-thrust = 2000.0
+thrust = 100.0
 
-[node name="Inside" type="Sprite" parent="."]
+[node name="Inside" type="Sprite" parent="." index="0"]
 
 visible = false
 texture = ExtResource( 3 )
 
-[node name="Walls" type="StaticBody2D" parent="Inside"]
+[node name="Walls" type="StaticBody2D" parent="Inside" index="0"]
 
 input_pickable = false
 collision_layer = 2
@@ -89,28 +90,28 @@ friction = 1.0
 bounce = 0.0
 _sections_unfolded = [ "Collision" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside/Walls"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside/Walls" index="0"]
 
 position = Vector2( 0, -9 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Inside/Walls"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Inside/Walls" index="1"]
 
 position = Vector2( 28, -21 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Inside/Walls"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Inside/Walls" index="2"]
 
 position = Vector2( -28, -21 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Particles2D" type="Particles2D" parent="."]
+[node name="Particles2D" type="Particles2D" parent="." index="1"]
 
 position = Vector2( 0, 25 )
-z = -1
+z_index = -1
 emitting = true
 amount = 600
 lifetime = 0.2
@@ -129,6 +130,6 @@ texture = null
 normal_map = null
 h_frames = 1
 v_frames = 1
-_sections_unfolded = [ "Process Material", "Time", "Transform", "Z" ]
+_sections_unfolded = [ "Process Material", "Time", "Transform", "Z", "Z Index" ]
 
 
