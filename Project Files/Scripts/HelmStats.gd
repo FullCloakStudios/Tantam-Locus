@@ -8,9 +8,9 @@ func _ready():
 	pass
 
 func addtohardpoint(node):
-	get_node(hardpointlist[hardpoints.size()]).add_child(node)
-	return get_node(hardpointlist[hardpoints.size()]).get_path()
+	get_node(hardpointlist[hardpoints.size() - 1]).add_child(node)
 	hardpoints.append(node.get_name())
+	return get_node(hardpointlist[hardpoints.size() - 1]).get_path()
 
 func removefromhardpoint(name):
 	for n in hardpoints:

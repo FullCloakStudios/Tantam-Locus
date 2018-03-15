@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/World-Mechanics.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Save.gd" type="Script" id=2]
@@ -6,33 +6,29 @@
 [ext_resource path="res://Prefabs/Background.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Prefabs/UI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Prefabs/Planet.tscn" type="PackedScene" id=7]
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="SaveManager" type="Node" parent="."]
+[node name="SaveManager" type="Node" parent="." index="0"]
 
 script = ExtResource( 2 )
 
-[node name="ChunkManager" type="Node2D" parent="."]
+[node name="ChunkManager" type="Node2D" parent="." index="1"]
 
 script = ExtResource( 3 )
+planetSide = false
 
-[node name="Ships" type="Node2D" parent="."]
+[node name="Ships" type="Node2D" parent="." index="2"]
 
-[node name="Background" parent="." instance=ExtResource( 4 )]
+[node name="Background" parent="." index="3" instance=ExtResource( 4 )]
 
-[node name="UI" parent="." instance=ExtResource( 5 )]
+[node name="UI" parent="." index="4" instance=ExtResource( 5 )]
 
-[node name="playerShip" parent="." instance=ExtResource( 6 )]
+[node name="playerShip" parent="." index="5" instance=ExtResource( 6 )]
 
-_sections_unfolded = [ "Collision", "Transform" ]
-
-[node name="PlanetBase" parent="." instance=ExtResource( 7 )]
-
-position = Vector2( -311.881, -14.2141 )
+_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
 
 

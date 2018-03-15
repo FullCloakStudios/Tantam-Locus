@@ -8,6 +8,7 @@ const rareobjs = [preload("res://Prefabs/Planet.tscn")]
 
 func _ready():
 	ChunkPos = $"../".worldtochunk($".".position)
+	name = "Chunk-" + String(ChunkPos)
 	generate()
 
 func _physics_process(delta):

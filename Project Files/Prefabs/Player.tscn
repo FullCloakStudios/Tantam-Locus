@@ -18,7 +18,7 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "Z Index" ]
 ship = NodePath(".")
 
 [node name="Collision" type="CollisionShape2D" parent="." index="0"]
@@ -39,8 +39,8 @@ limit_top = -10000000
 limit_right = 10000000
 limit_bottom = 10000000
 limit_smoothed = false
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
 smoothing_enabled = true
 smoothing_speed = 10.0
 offset_v = 0.0
@@ -61,5 +61,8 @@ scale = Vector2( 0.1, 0.1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="captain" parent="." index="3" instance=ExtResource( 2 )]
+
+z_index = 1
+_sections_unfolded = [ "Collision", "Transform", "Z", "Z Index" ]
 
 

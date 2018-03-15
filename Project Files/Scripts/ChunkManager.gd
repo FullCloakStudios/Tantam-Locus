@@ -3,15 +3,20 @@ extends Node2D
 var Chunks = {}
 var LoadedChunks = {}
 var chunk = preload("res://Levels/Chunk.tscn")
+var pchunk = preload("res://Levels/Chunk.tscn")
 var playerchunkpos
 var lastplayerchunkpos
+export(bool) var planetSide
 
 func _ready():
 	genaround(Vector2(0,0), 1)
 	lastplayerchunkpos = Vector2(0,0)
 
 func _physics_process(delta):
-	playerchunkpos = worldtochunk($"/root/World".playership.position)
+	if planetSide:
+		playerchunkpos = worldtochunk($"/root/World".captain.position)
+	else:
+		playerchunkpos = worldtochunk($"/root/World".playership.position)
 	if(playerchunkpos != lastplayerchunkpos):
 		genaround(playerchunkpos, 1)
 		lastplayerchunkpos = playerchunkpos
@@ -26,7 +31,11 @@ func worldtochunk(worldpos):
 	return cpos
 
 func loadchunk(worldpos):
-	var node = chunk.instance()
+	var node
+	if planetSide:
+		node = pchunk.instance()
+	else:
+		node = chunk.instance()
 	node.set_name("Chunk" + String(worldtochunk(worldpos)))
 	node.position = worldpos
 	$"/root/World/ChunkManager".add_child(node)

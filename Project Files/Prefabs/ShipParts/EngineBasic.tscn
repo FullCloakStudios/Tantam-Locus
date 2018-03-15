@@ -112,7 +112,7 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 0, 25 )
 z_index = -1
-emitting = true
+emitting = false
 amount = 600
 lifetime = 0.2
 one_shot = false

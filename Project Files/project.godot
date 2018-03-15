@@ -8,9 +8,6 @@
 
 config_version=3
 
-fps=false
-=false
-
 [application]
 
 config/name="Tantam-Locus"
@@ -19,15 +16,15 @@ boot_splash/image="res://Sprites/Ui Sprites/Splash-Screen.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
-[debug]
-
-settings/stdout/print_fps=true
-
 [display]
 
 window/handheld/emulate_touchscreen=true
 window/stretch/mode="2d"
 window/stretch/shrink="1"
+
+[editor]
+
+convert_text_resources_to_binary_on_export=true
 
 [gdnative]
 

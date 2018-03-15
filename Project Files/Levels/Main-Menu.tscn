@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://UI/Default_Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Fonts/Roboto-Light.ttf" type="DynamicFontData" id=2]
@@ -9,8 +9,8 @@
 [ext_resource path="res://Sprites/Ui Sprites/Exit.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/Exit.gd" type="Script" id=8]
 [ext_resource path="res://icon.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Backdrop001.png" type="Texture" id=10]
-[ext_resource path="res://Scripts/Save.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/Save.gd" type="Script" id=10]
+[ext_resource path="res://Sprites/Backdrop001.png" type="Texture" id=11]
 
 [sub_resource type="GDScript" id=1]
 
@@ -82,7 +82,18 @@ func _on_LoadGame_button_up():
 	$\"/root/Main-Menu/Menu/LGMenu\".popup(Rect2(160,30,700,500))
 "
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="GDScript" id=6]
+
+script/source = "extends Button
+
+
+
+func _on_Settings_button_up():
+	$\"../\".hide()
+	$\"/root/Main-Menu/Settings Menu\".show()
+"
+
+[sub_resource type="DynamicFont" id=7]
 
 size = 45
 use_mipmaps = false
@@ -90,7 +101,7 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="GDScript" id=7]
+[sub_resource type="GDScript" id=8]
 
 script/source = "extends LineEdit
 
@@ -98,7 +109,7 @@ func _on_Name_text_changed( name ):
 	$\"/root/Main-Menu/Menu/NGMenu/Button\".text1 = name
 "
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=9]
 
 size = 50
 use_mipmaps = false
@@ -106,7 +117,7 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Settings" ]
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=10]
 
 size = 50
 use_mipmaps = false
@@ -114,7 +125,7 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="GDScript" id=10]
+[sub_resource type="GDScript" id=11]
 
 script/source = "extends Button
 
@@ -134,7 +145,7 @@ func _on_Button_button_up():
 	$\"../../\".addSave(text1 + \".save\")
 	currentScene.get_node(\"/root/World/SaveManager\").savefile = text1 + \".save\""
 
-[sub_resource type="GDScript" id=11]
+[sub_resource type="GDScript" id=12]
 
 script/source = "extends Button
 
@@ -146,7 +157,7 @@ func _on_Cancel_button_up():
 	$\"../\".hide()
 "
 
-[sub_resource type="GDScript" id=12]
+[sub_resource type="GDScript" id=13]
 
 script/source = "extends PopupMenu
 
@@ -171,10 +182,22 @@ func _on_LGMenu_id_pressed( ID ):
 	$\"/root/Main-Menu/SaveManager\".loadGame()
 "
 
+[sub_resource type="GDScript" id=14]
+
+script/source = "extends Button
+
+
+
+func _on_Return_button_up():
+	$\"../\".hide()
+	$\"../../Menu\".show()
+"
+
 [node name="Main-Menu" type="Node2D" index="0"]
 
 [node name="Menu" type="Control" parent="." index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -322,6 +345,7 @@ group = null
 icon = ExtResource( 6 )
 flat = false
 align = 1
+script = SubResource( 6 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="ExitGame" type="Button" parent="Menu" index="5"]
@@ -388,7 +412,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 1
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/selection_color = Color( 1, 1, 1, 1 )
 custom_colors/cursor_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_selected = Color( 0.0546875, 0, 1, 1 )
@@ -400,7 +424,7 @@ placeholder_alpha = 0.6
 caret_blink = false
 caret_blink_speed = 0.65
 caret_position = 0
-script = SubResource( 7 )
+script = SubResource( 8 )
 
 [node name="MenuButton" type="MenuButton" parent="Menu/NGMenu" index="1"]
 
@@ -418,7 +442,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 disabled = true
 toggle_mode = false
 action_mode = 0
@@ -449,7 +473,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -457,7 +481,7 @@ group = null
 text = "OK"
 flat = false
 align = 1
-script = SubResource( 10 )
+script = SubResource( 11 )
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 load_scene = "res://Levels/World.tscn"
 
@@ -478,7 +502,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -486,7 +510,7 @@ group = null
 text = "Cancel"
 flat = false
 align = 1
-script = SubResource( 11 )
+script = SubResource( 12 )
 _sections_unfolded = [ "custom_fonts" ]
 
 [node name="NGMenu2" type="PopupPanel" parent="Menu" index="7"]
@@ -526,7 +550,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 1
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/selection_color = Color( 1, 1, 1, 1 )
 custom_colors/cursor_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_selected = Color( 0.0546875, 0, 1, 1 )
@@ -538,7 +562,7 @@ placeholder_alpha = 0.6
 caret_blink = false
 caret_blink_speed = 0.65
 caret_position = 0
-script = SubResource( 7 )
+script = SubResource( 8 )
 
 [node name="MenuButton" type="MenuButton" parent="Menu/NGMenu2" index="1"]
 
@@ -556,7 +580,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 disabled = true
 toggle_mode = false
 action_mode = 0
@@ -587,7 +611,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -595,7 +619,7 @@ group = null
 text = "OK"
 flat = false
 align = 1
-script = SubResource( 10 )
+script = SubResource( 11 )
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 load_scene = "res://Levels/World.tscn"
 
@@ -616,7 +640,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -624,18 +648,10 @@ group = null
 text = "Cancel"
 flat = false
 align = 1
-script = SubResource( 11 )
+script = SubResource( 12 )
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Backdrop001" type="Sprite" parent="Menu" index="8"]
-
-position = Vector2( 515.955, 359.931 )
-scale = Vector2( 1.29, 1.2 )
-z_index = -100
-texture = ExtResource( 10 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="LGMenu" type="PopupMenu" parent="Menu" index="9"]
+[node name="LGMenu" type="PopupMenu" parent="Menu" index="8"]
 
 visible = false
 anchor_left = 0.0
@@ -656,18 +672,71 @@ size_flags_vertical = 1
 popup_exclusive = false
 items = [  ]
 hide_on_state_item_selection = false
-script = SubResource( 12 )
+script = SubResource( 13 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="SaveManager" type="Node" parent="." index="1"]
+[node name="Settings Menu" type="Control" parent="." index="1"]
 
-script = ExtResource( 11 )
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Material" ]
+
+[node name="Return" type="Button" parent="Settings Menu" index="0"]
+
+use_parent_material = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 76.0
+margin_bottom = 70.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+icon = ExtResource( 7 )
+flat = false
+align = 1
+script = SubResource( 14 )
+_sections_unfolded = [ "Material" ]
+
+[node name="SaveManager" type="Node" parent="." index="2"]
+
+script = ExtResource( 10 )
+
+[node name="Backdrop001" type="Sprite" parent="." index="3"]
+
+position = Vector2( 515.955, 359.931 )
+scale = Vector2( 1.29, 1.2 )
+z_index = -100
+texture = ExtResource( 11 )
+_sections_unfolded = [ "Transform" ]
 
 [connection signal="button_up" from="Menu/NewGame" to="Menu/NewGame" method="_on_NewGame_button_up"]
 
 [connection signal="button_up" from="Menu/Continue" to="Menu/Continue" method="_on_Continue_button_up"]
 
 [connection signal="button_up" from="Menu/LoadGame" to="Menu/LoadGame" method="_on_LoadGame_button_up"]
+
+[connection signal="button_up" from="Menu/Settings" to="Menu/Settings" method="_on_Settings_button_up"]
 
 [connection signal="button_up" from="Menu/ExitGame" to="Menu/ExitGame" method="_on_ExitGame_button_up"]
 
@@ -686,5 +755,7 @@ script = ExtResource( 11 )
 [connection signal="about_to_show" from="Menu/LGMenu" to="Menu/LGMenu" method="_on_LGMenu_about_to_show"]
 
 [connection signal="id_pressed" from="Menu/LGMenu" to="Menu/LGMenu" method="_on_LGMenu_id_pressed"]
+
+[connection signal="button_up" from="Settings Menu/Return" to="Settings Menu/Return" method="_on_Return_button_up"]
 
 

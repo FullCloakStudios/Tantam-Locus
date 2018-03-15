@@ -3,12 +3,13 @@
 [ext_resource path="res://Sprites/Backdrop001.png" type="Texture" id=1]
 [ext_resource path="res://Music/Someone is Crazy and it's me.wav" type="AudioStream" id=2]
 
-[node name="Background" type="ParallaxBackground"]
+[node name="Background" type="ParallaxBackground" index="0"]
 
 layer = -100
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 scroll_offset = Vector2( 0, 0 )
 scroll_base_offset = Vector2( 0, 0 )
 scroll_base_scale = Vector2( 1, 1 )
@@ -16,17 +17,17 @@ scroll_limit_begin = Vector2( 0, 0 )
 scroll_limit_end = Vector2( 0, 0 )
 scroll_ignore_camera_zoom = true
 
-[node name="Backdrop001" type="Sprite" parent="."]
+[node name="Backdrop001" type="Sprite" parent="." index="0"]
 
 position = Vector2( 684.767, 384.565 )
 scale = Vector2( 1.72769, 1.31669 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="1"]
 
 stream = ExtResource( 2 )
-volume_db = 5.0
+volume_db = 24.0
 autoplay = false
 mix_target = 0
 bus = "Master"

@@ -4,7 +4,8 @@ export(NodePath) var ship
 var speed
 var shipPos = Vector2()
 var shouldMove = true
-
+var movePoint = Vector2(0,0)
+var touchPoint = Vector2(0,1)
 var weapons = PoolStringArray()
 var firerate = {}
 var stockFirerate = {}
@@ -57,16 +58,23 @@ func _ready():
 
 
 func _physics_process(delta):
-	move(delta)
 	fire()
 	damage()
 
-
-
+func _unhandled_input(event):
+	if event is InputEventScreenTouch:
+		if event.pressed:
+			touchPoint = ship.position - (event.position - $"/root".canvas_transform.origin)
+			movePoint = (ship.position - (event.position - $"/root".canvas_transform.origin))
+		else:
+			movePoint = Vector2(0,0)
+	if event is InputEventScreenDrag:
+		movePoint = (ship.position - ((event.position + event.relative) - $"/root".canvas_transform.origin))
+		touchPoint = (ship.position - ((event.position + event.relative) - $"/root".canvas_transform.origin))
 func _process(delta):
 	if(shouldMove && !isCaptainFocus):
-		rotation = ( get_node(".").position.angle_to_point( get_global_mouse_position() ) + deg2rad(-90) )
-
+		rotation = ( get_node(".").position.angle_to_point( -touchPoint + ship.position ) + deg2rad(-90) )
+	move(delta)
 
 
 
@@ -91,7 +99,7 @@ func addGun(gunname, fireratel, gunlocation, part):
 
 func move(delta):
 	if(Input.is_mouse_button_pressed(BUTTON_LEFT) && shouldMove && !isCaptainFocus):
-		offset = ship.position - get_global_mouse_position()
+		offset = movePoint
 	else:
 		offset = offset / 2
 		if(shouldMove == false):
@@ -155,6 +163,3 @@ func save():
 		cargo = cargo
 	}
 	return saveData
-
-func switchToPerson(dir):
-	print(dir)

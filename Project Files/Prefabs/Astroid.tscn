@@ -19,7 +19,7 @@ friction = 1.0
 bounce = 0.0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pickable", "Transform" ]
-health = 10.0
+health = 100.0
 marker = "res://Prefabs/Marker.tscn"
 
 [node name="Astroid" type="Sprite" parent="." index="0"]
